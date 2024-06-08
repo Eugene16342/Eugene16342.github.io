@@ -1,0 +1,237 @@
+@import "index.css";
+
+.poster {
+  height: 260px;
+  position: sticky;
+  top: 90px;
+  margin-right: 10px;
+
+  .card-body {
+    border-radius: 0 0 5px 5px;
+  }
+}
+.others_name {
+  font-size: 1rem;
+  height: auto;
+  margin-bottom: 5px;
+
+  a {
+    color: var(--deeper);
+    &:hover {
+      color: var(--deep);
+    }
+  }
+}
+.post_content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--border_color);
+  border-radius: 5px;
+  padding: 20px;
+  background-color: var(--background-color);
+  color: var(--text_color);
+  .post_title {
+    &::after {
+      content: "";
+      position: relative;
+      top: 10px;
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--border_color);
+    }
+    .badge {
+      background-color: var(--deep);
+      color: var(--text_color);
+    }
+  }
+
+  .post_main {
+    margin-top: 10px;
+    line-height: 2rem;
+  }
+
+  .post_btn {
+    .last {
+      position: absolute;
+      right: 20px;
+      border: 1px var(--border_color) solid;
+      border-radius: 5px;
+    }
+    .post_btn_vote {
+      text-align: center;
+      min-height: 30px;
+      margin: 5px;
+      border: solid 1px;
+      border-radius: 50px;
+      background-color: rgba(0, 0, 0, 0);
+      svg {
+        display: block;
+        margin: auto;
+      }
+    }
+    .vote_up {
+      border-color: rgb(248, 205, 125);
+      color: rgb(248, 205, 125);
+      transition: 0.2s ease;
+      &:hover {
+        background-color: rgb(248, 205, 125);
+        color: white;
+      }
+    }
+
+    .vote_down {
+      border-color: gray;
+      color: gray;
+      transition: 0.2s ease;
+      &:hover {
+        background-color: rgb(96, 96, 97);
+        color: white;
+      }
+    }
+
+    .vote_up_active {
+      background-color: rgb(248, 205, 125);
+      color: white;
+    }
+
+    .vote_down_active {
+      background-color: rgb(67, 66, 68);
+      color: white;
+    }
+  }
+
+  .post_reply_bg {
+    background-color: var(--post_reply_bgc);
+    border-radius: 5px;
+    .post_reply {
+      padding: 10px;
+      .others_reply {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        position: relative;
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          bottom: -5px;
+          width: 100%;
+          height: 1px;
+          background-color: var(--deeper);
+        }
+        &:hover {
+          background-color: var(--hover);
+        }
+        .others_text {
+          font-size: 0.9rem;
+          max-width: auto;
+          .reply_feature {
+            color: var(--small_text_color);
+            font-size: small;
+            margin-top: 3px;
+            span {
+              padding-left: 10px;
+              &:first-child {
+                padding: 0;
+              }
+            }
+            .reply_feature_btn {
+              &:hover {
+                color: var(--deep);
+                cursor: pointer;
+              }
+            }
+            .active {
+              color: var(--deep);
+            }
+          }
+        }
+      }
+    }
+    .user_reply {
+      display: flex;
+      align-items: center;
+      height: auto;
+      width: auto;
+      border: 1px solidvar(--border_color);
+      border-radius: 50px;
+      margin-top: -10px;
+      background-color: var(--reply_textaera);
+      box-shadow: 0px 1px 3px;
+      z-index: 10;
+
+      .text_area {
+        background-color: rgba(0, 0, 0, 0);
+        color: var(--text_color);
+        outline: none;
+        resize: none;
+        border: none;
+        height: 30px;
+        margin: 5px 10px 0 10px;
+        width: 90%;
+        font-size: 0.8rem;
+      }
+      svg {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .upload_btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: 1%;
+    a {
+      padding-right: 10px;
+      text-align: center;
+      margin-bottom: 5px;
+      color: var(--text_color);
+      &:hover {
+        color: var(--deeper);
+      }
+      svg {
+        width: 1.2rem;
+        height: 1.2rem;
+      }
+    }
+
+    #user_comment_btn_submit {
+      display: inline-block;
+      width: 80px;
+      background-color: var(--deep);
+      border-radius: 5px;
+      text-align: center;
+      margin-left: 10px;
+      margin-top: 5px;
+      cursor: pointer;
+      &:hover {
+        background-color: var(--deeper);
+        transform: translateY(1px);
+
+      }
+    }
+  }
+  #user_comment {
+    background-color: var(--reply_textaera);
+    border: 1px solid var(--border_color);
+    margin-top: 5px;
+    height: 150px;
+    font-size: 0.8rem;
+    color: var(--text_color);
+    resize: none;
+    outline-color: var(--border_color);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .poster {
+    display: none;
+  }
+}

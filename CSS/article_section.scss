@@ -1,0 +1,114 @@
+@import 'index.scss';
+
+.navbg {
+    background-color: var(--light) !important;
+    border-radius: 5px;
+  }
+  
+  .article_nav {
+    background-color: var(--light);
+    border-radius: 5px;
+    h2 {
+      color: var(--text_color);
+    }
+    .psot_btn {
+      margin: 0 auto 0 10px;
+      padding: 0 5px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      background-color: var(--deeper);
+      color: var(--text_color);
+      border-radius: 5px;
+      transition: transform 0.2s ease;
+      &:hover {
+        background-color:var(--deep);
+        transform: translateY(1px);
+      }
+  
+  
+    }
+    a {
+      color: var(--text_color);
+      &:hover {
+        color: tomato;
+      }
+  
+    }
+    .active {
+      color:tomato !important;
+    }
+  
+    .dropdown-menu {
+      width: 50px !important;
+      background-color: var(--light);
+      color: var(--text_color);
+      border-radius: 0px 0px 5px 5px;
+      box-shadow: 5px 5px 5px;
+      transition: ease-in 0.2s;
+    }
+  }
+  
+  .article_announcement {
+    background-color: rgba(255, 99, 71, 0.3) !important;
+    &:hover {
+      background-color: var(--hover) !important;
+    }
+  }
+  
+  .article_title {
+    border-radius: 5px;
+    display: flex;
+    border: 1px solid var(--border_color);
+    background-color: var(--background-color);
+    margin-bottom: 10px;
+    transition: background-color 0.2s;
+  
+    &:hover {
+      background-color: var(--hover);
+      cursor: pointer;
+    }
+    img {
+      border-radius: 5px 0 0 5px;
+    }
+    .article_title_title {
+      color: var(--text_color);
+      width: 950px;
+      padding: 5px;
+      max-height: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      box-sizing: border-box;
+      h5 {
+        margin-top: 5px;
+      }
+      P {
+        margin: 15px 0 0 5px;
+      }
+    }
+    .article_title_lasted_update {
+      font-size: small;
+      color: var(--text_color);
+      margin-left: auto;
+      width: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-left: solid 1px var(--border_color);
+    }
+  }
+
+
+
+
+  @media screen and (max-width: 1400px) {
+    .article_title_container {
+      .article_title_lasted_update {
+        display: none;
+      }
+    }
+  }

@@ -1,0 +1,37 @@
+@import "index.css";
+.card {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.hot_section .card-body {
+  border-radius: 0 5px 5px 0;
+  border: 1px solid var(--border_color);
+  border-left: none;
+  transition: 0.3s;
+}
+.hot_section .card-body:hover {
+  background-color: var(--hover);
+}
+.hot_section img {
+  border: 1px solid var(--border_color);
+  border-right: none;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    margin-bottom: 180px !important;
+  }
+  .hot_section .card-body {
+    border: 1px solid var(--border_color);
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+  }
+  .hot_section img {
+    width: 500px;
+    max-height: 177px;
+    border: 1px solid var(--border_color);
+    border-bottom: none;
+    border-radius: 5px 5px 0 0 !important;
+  }
+}/*# sourceMappingURL=hot_section.css.map */

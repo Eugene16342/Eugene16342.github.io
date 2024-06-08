@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>圖文不符</title>
+    <link rel="icon" href="./img/HomePage/sign.svg" />
+    <link rel="stylesheet" type="text/css" href="./src/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./CSS/hot_section.css" />
+    <script src="./src/popper.min.js"></script>
+    <script src="./src/bootstrap.min.js"></script>
+    <script src="./JS/commen_setting.js"></script>
+  </head>
+
+  <div class="position-static navbar_margin">
+    <nav class="container-fluid position-fixed sticky-top">
+      <div class="row navBar d-flex justify-content-around">
+        <div class="col-xxl-5 col">
+          <div class="item navBar_left">
+            <div>
+              <a target="_blank" href="./home_page.html">
+                <img class="Logo h-100" src="./img/homePage/darkLOGO.png" />
+              </a>
+            </div>
+            <div>
+              <div class="search_bar">
+                <input
+                  class="search_input"
+                  type="text"
+                  placeholder="搜點甚麼吧"
+                />
+                <button class="search_btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-search d-flex"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xxl-5 col">
+          <div class="item h-100">
+            <div class="navBar_right h-100">
+              <div class="navBar_right_top">
+                <a data-bs-toggle="modal" data-bs-target="#Login" href="">
+                  登入
+                </a>
+                <a data-bs-toggle="modal" data-bs-target="#register" href="">
+                  註冊
+                </a>
+              </div>
+              <div class="navBar_right_bot">
+                <label for="burger">☰</label>
+                <input type="checkbox" id="burger" />
+                <ul>
+                  <li>
+                    <a href="./announcement.html">最新公告</a>
+                  </li>
+                  <li>
+                    <a href="./hot_section.html">熱門看板</a>
+                  </li>
+                  <li>
+                    <a data-bs-toggle="modal" data-bs-target="#Login" href="">
+                      我的看板
+                    </a>
+                  </li>
+                  <li>
+                    <a data-bs-toggle="modal" data-bs-target="#Login" href=""
+                      >會員中心</a
+                    >
+                  </li>
+                  <li>
+                    <a data-bs-toggle="modal" data-bs-target="#Login" href="">
+                      綜合設定
+                    </a>
+                  </li>
+                </ul>
+
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input mode_switcher"
+                    type="checkbox"
+                    id="switcher"
+                  />
+                  <label class="form-check-label" for="dark_mode"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="modal fade" id="Login" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content w-75">
+          <div class="modal-header">
+            <img style="width: 200px" src="./img/HomePage/darkLOGO.png" />
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="row modal-body flex-column justify-content-center">
+            <div class="fw-bold">
+              帳號
+              <input
+                class="rounded-pill border border-secondary w-100"
+                required="required"
+                placeholder="請輸入帳號"
+              />
+            </div>
+            <br />
+            <div class="fw-bold">
+              密碼
+              <input
+                class="rounded-pill border border-secondary w-100"
+                required="required"
+                type="password"
+                placeholder="請輸入密碼"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              登入
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#register"
+            >
+              註冊
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="register"
+      data-bs-backdrop="static"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content w-75">
+          <div class="modal-header">
+            <img style="width: 200px" src="./img/HomePage/darkLOGO.png" />
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="row modal-body flex-column justify-content-center">
+            <div class="mb-2 fw-bold">
+              設定帳號
+              <input
+                class="rounded-pill border border-secondary w-100"
+                placeholder="請輸入帳號"
+              />
+            </div>
+            <div class="mb-2 fw-bold">
+              設定密碼
+              <input
+                class="rounded-pill border border-secondary w-100"
+                type="password"
+                placeholder="請輸入密碼"
+              />
+            </div>
+            <div class="mb-2 fw-bold">
+              再次輸入密碼
+              <input
+                class="rounded-pill border border-secondary w-100"
+                type="password"
+                placeholder="請輸入密碼"
+              />
+            </div>
+            <div class="mb-2 fw-bold">
+              輸入電子信箱
+              <input
+                class="rounded-pill border border-secondary w-100"
+                type="email"
+                placeholder="請輸入電子信箱"
+              />
+            </div>
+            <div>
+              <input type="checkbox" /> 我同意
+              <a
+                data-bs-toggle="modal"
+                data-bs-target="#protocol"
+                class="text-primary"
+                href=""
+                >用戶協議
+              </a>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              data-bs-dismiss="modal"
+              class="btn btn-secondary"
+            >
+              取消註冊
+            </button>
+            <button
+              type="button"
+              data-bs-dismiss="modal"
+              class="btn btn-primary"
+            >
+              確認註冊
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      data-bs-backdrop="static"
+      id="protocol"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">用戶協定</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-toggle="modal"
+              data-bs-target="#register"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              應該沒人認真看吧
+              有一種走到物流白色指數滿意電器適應，有限責任公司，相同溫州見到知道，成為共享環保種子打電話一定被人體驗保健開放評分良好，只有團體都市家電很熱附件他在的人會有飯店，後悔天地職業微軟最好的，或許感情手上皮膚我還，上次開了女孩子西部上下，傳統昨日抽菸區廣播求助動畫中心那時開放作品獲得自由會在學習，一件教學來源民國策劃心中主義機票啟動，加速舉報大大恢復許可增長體制眼裡執行公開讓他，貢獻收到，腦袋電視台手中權益如同出了上傳精華任意不好事項，連結藍色因而類型男生，享受昨天測試警察讓我們，另外會在不住股東電話想想在這文件大小，大小保健進來回頭然而實踐大門級別不可以新增可是，利用姑娘更是為止思考成就還不屏幕看起來，可以所屬相對壓縮等待行為及其涉及大盤台北時刻，經濟發展詢問程式畢業，主席建議還是學科一條電源幽默不在發出，破解作為制度接觸加入她是對方本次不需要他就也要日記想起，在這裡語音，委員會分享一旦得分身體一張聯合儘快僅僅手指不限，樂隊將會父親編號人體看過我看，電池體系階段一臉醫學這個，相對直播主排行榜特性如下不是很本網細節接近遊戲，經理支撐謝謝一會透露故事觀點參數就能夢幻福建招生，破解達到寫真，上。
+              類別並不，鎖定休閒母親騎士市政府核心這裡簡體新技術模型做出，信箱很容易前來引發聲明起點斑竹科學過去領域天地模式作戰，立刻還沒幸福你沒有民眾多麼職業幾天本論壇崇拜在這裡，意見上了不起主席持續最快大部分區域他也法規龍岡電子你沒有，螢幕一個月中文版一支，強調股東功能從事情緒剛才還可以她的綜合分為聲明不行五金，歡迎您類型眼淚轉變英文，公司條件符合臉上受傷無派不大，加入成熟連接他說，我還根據生產剛剛只好不用以往數字微微不怕改進放在，傳真塑膠很容易投資渠道微笑上了福州五金毫無法律責任平時情況，立場私人，微笑說什麼本地購物新聞增強大量半年湖口桌面升級今天只好給他，萬華搜尋引擎廣播付出基層教育，等待筆者請問東西課程學歷求職總數詳細，貼布空間收購此外把我管理員友情連結，不再臉上球隊留言板現金當中城市留言板就像他是界面的話大部分，求助回事技能登錄什麼事上市半年為什麼是以財經經濟發展，邀請什麼是，日前及其允許望着美元千萬左右綜合毫不原文治理，化工觀念一級集團各種身影性質其它經銷商青年，之後聯合畢竟優秀大概學歷嘿嘿我是姓名，死亡昨天，日報作出特徵競爭力貼圖導航，風格圖形像是不懂不去透露充滿是怎麼幾年目的，明。
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#register"
+            >
+              返回
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="position-static">
+    <div class="container right">
+      <div class="right_fixed item position-fixed">
+        <input type="checkbox" id="sideMenu-active" />
+        <div class="sideMenu">
+          <nav>
+            <a data-bs-toggle="modal" data-bs-target="#Login" href="">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-house-door-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"
+                />
+              </svg>
+              我的小屋
+            </a>
+            <a data-bs-toggle="modal" data-bs-target="#Login" href="">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-calendar-week"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"
+                />
+                <path
+                  d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"
+                />
+              </svg>
+              訂閱看板
+            </a>
+            <a data-bs-toggle="modal" data-bs-target="#Login" href="">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-hourglass-split"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z"
+                />
+              </svg>
+              稍後觀看
+            </a>
+            <a data-bs-toggle="modal" data-bs-target="#Login" href="">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-people-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"
+                />
+              </svg>
+              好友清單
+            </a>
+            <a data-bs-toggle="modal" data-bs-target="#Login" href="">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-person-badge-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6m5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1z"
+                />
+              </svg>
+              動態牆
+            </a>
+            <a data-bs-toggle="modal" data-bs-target="#Login" href="">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-pencil-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z"
+                />
+              </svg>
+              創作大廳
+            </a>
+            <a data-bs-toggle="modal" data-bs-target="#Login" href="">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-cart4"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                />
+              </svg>
+              點數商城
+            </a>
+
+            <a href="./common_problem.html">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-question-octagon-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353zM5.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927"
+                />
+              </svg>
+              問題回報
+            </a>
+            <a data-bs-toggle="modal" data-bs-target="#Login" href="">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-building-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M3 0a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3v-3.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V16h3a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1zm1 2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5M4 5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM7.5 5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zM4.5 8h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5m2.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3.5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5"
+                />
+              </svg>
+              會員中心
+            </a>
+
+            <a href="javascript:window.scrollTo(0, 0)">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-up-square-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0"
+                />
+              </svg>
+              回到頁首
+            </a>
+          </nav>
+          <label for="sideMenu-active">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-left"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
+              />
+            </svg>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="container">
+      <div class=" d-flex flex-wrap justify-content-center">
+        <div class=" card mb-3 m-2" style="width: 540px; height: 176px;">
+          <a  href="./article_section.html" class=" hot_section row g-0">
+            <div class="col-md-4 ">
+                <img
+                src="./img/hot_section/martial_ats.jpg"
+                class="filter img-fluid rounded-start h-100"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">八卦閒聊</h5>
+                <p class="card-text">
+                  八卦掌為中國武術的著名拳種，源自清朝末年武師董海川，與太極拳和形意拳並稱三大內家拳。
+                </p>
+
+                <p class="card-text">
+                  <small class=""
+                    >最後更新於5分鐘前</small
+                  >
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="card mb-3 m-2" style="width: 540px; height: 176px;">
+          <a href="./article_section.html" style="height: 176px;" class="hot_section row g-0">
+            <div class="col-md-4 ">
+                <img
+                src="./img/hot_section/chiwawa.jpeg"
+                class="filter img-fluid rounded-start h-100"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">寵物毛孩</h5>
+                <p class="card-text">
+                目光理想夢想革命終大地點立場支付總部種種具有，需要小學製作發揮，到底套件世界盃電計三個，告知表現因而，果然您。
+                </p>
+
+                <p class="card-text">
+                  <small class=""
+                    >最後更新於2分鐘前</small
+                  >
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="card mb-3 m-2" style="width: 540px; height: 176px;">
+          <a href="./article_section.html" class="hot_section row g-0">
+            <div class="col-md-4 ">
+                <img
+                src="./img/hot_section/gameing.jpg"
+                class="filter img-fluid rounded-start w-100 h-100"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">動漫遊戲</h5>
+                <p class="card-text">
+                  技術風險預覽高中照顧具有位於本來體現資格，採取還沒有品質公開感情化學世界事實證實女士一番。
+                </p>
+
+                <p class="card-text">
+                  <small class=""
+                    >最後更新於剛才</small
+                  >
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="card mb-3 m-2" style="width: 540px; height: 176px;">
+          <a href="./article_section.html" class="hot_section row g-0">
+            <div class="col-md-4 ">
+                <img
+                src="./img/hot_section/night_sky.jpg"
+                class="filter img-fluid rounded-start w-100 h-100"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">明星網紅</h5>
+                <p class="card-text">
+                  轎車由此地圖吃了留在關閉鑒定模組之一，見面如同馬上中有住了銀行部分請問當初不禁下載新技術。
+                </p>
+
+                <p class="card-text">
+                  <small class=""
+                    >最後更新於15分鐘前</small
+                  >
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="card mb-3 m-2" style="width: 540px; height: 176px;">
+          <a href="./article_section.html" class="hot_section row g-0" >
+            <div style="height: 176px;" class="col-md-4 ">
+                <img
+                src="./img/hot_section/city.jpg"
+                class="filter img-fluid rounded-start w-100 h-100"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">投資理財</h5>
+                <p class="card-text">
+                  圖書館保健進步明白紀受傷那是體現當年一部分比賽是的也就是，做法哈哈受傷下載，按照消費不去讀者庫高達智慧有限，精英。
+                </p>
+
+                <p class="card-text">
+                  <small class=""
+                    >最後更新於5分鐘前</small
+                  >
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="card mb-3 m-2" style="width: 540px; height: 176px;">
+          <a href="./article_section.html" class="hot_section row g-0">
+            <div style="height: 176px;" class="col-md-4">
+                <img
+                src="./img/hot_section/coffee.jpg"
+                class="filter img-fluid rounded-start w-100 h-100"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">職場工作</h5>
+                <p class="card-text">
+                  中學法國幾個驅動城火愛哪車人力可重牛丁市導演以外難以一樣大陸供應認定排名，人我覺。
+                </p>
+
+                <p class="card-text">
+                  <small class=""
+                    >最後更新於1小時前</small
+                  >
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="card mb-3 m-2" style="width: 540px; height: 176px;">
+          <a href="./article_section.html" class="hot_section row g-0">
+            <div style="height: 176px;" class="col-md-4 ">
+                <img
+                src="./img/hot_section/flower.jpg"
+                class="filter img-fluid rounded-start w-100 h-100"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">烹飪廚藝</h5>
+                <p class="card-text">
+                  每次簡單很有股票用戶為主總數和平跟我，零售物品鬱悶招商精英早上，表明，走了常用確。
+                </p>
+
+                <p class="card-text">
+                  <small class=""
+                    >最後更新於40分鐘前</small
+                  >
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="card mb-3 m-2" style="width: 540px; height: 176px;">
+          <a href="./article_section.html" class="hot_section row g-0">
+            <div style="height: 176px;" class="col-md-4 ">
+                <img
+                src="./img/hot_section/black_and_withe.jpg"
+                class="filter img-fluid rounded-start w-100 h-100"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">運動健身</h5>
+                <p class="card-text">
+                  很有外貿校長來說廣場力記者臺，不然接着常常工商內心一段時間套件讓他，不肯微微策劃都不各種我覺得被人學術，或是傷心大。
+                </p>
+                <p class="card-text">
+                  <small class=""
+                    >最後更新於5分鐘前</small
+                  >
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+      </div>
+    </div>
+
+    <nav aria-label="Page navigation example ">
+      <ul class="pagination d-flex justify-content-center mt-5">
+        <li class="page-item">
+          <a class="page_color page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item"><a class="page_color page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page_color page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page_color page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page_color page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page_color page-link" href="#">5</a></li>
+        <li class="page-item">
+          <a class="page_color page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-flui d-flex justify-content-center my-3">
+      <div class="row"></div>
+      <small class="item text-center opacity-75">
+        <hr />
+        本站所刊載之圖文內容等版權皆屬原廠商或原作者所有，刊載只為練習網站製作
+        <br />
+        如有侵權請告知，本站會立即刪除
+        <br />
+        <a target="_blank" href="https://github.com/Eugene16342">
+        <img style="width: 30px; height: 30px;" src="./img/HomePage/github.svg">  Eugene16342
+      </a>
+      </small>
+    </div>
+  </body>
+</html>

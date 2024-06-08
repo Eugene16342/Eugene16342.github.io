@@ -1,0 +1,66 @@
+@import "index.css";
+.carousel-item .carousel_text {
+  background: var(--deeper);
+}
+
+.famous_topic {
+  background-color: var(--card_body);
+  border: 1px solid var(--border_color);
+}
+.famous_topic .famous_topic_chose {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  padding: 0 0 0 0;
+  margin: 5px 0 2px 0;
+}
+.famous_topic .famous_topic_chose .active {
+  background-color: var(--deep);
+  color: white;
+}
+.famous_topic .famous_topic_chose li {
+  font-size: larger;
+  border-radius: 5px;
+  font-weight: bolder;
+  padding: 0 3px;
+  color: var(--text_color);
+}
+.famous_topic .famous_topic_chose li:hover {
+  background-color: var(--deep);
+  color: white;
+  cursor: pointer;
+}
+.famous_topic .famous_topic_fixed {
+  background-color: wheat;
+  font-weight: bold;
+}
+.famous_topic .famous_topic_rank {
+  margin: 10px 0;
+  transition: 0.3s ease;
+}
+.famous_topic .famous_topic_rank .num {
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  background-color: var(--hover);
+  margin-left: 5px;
+  border-radius: 5px;
+}
+.famous_topic .famous_topic_rank .famous_topic_rank_title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.famous_topic .famous_topic_rank .famous_topic_rank_title a:hover {
+  color: var(--deep);
+  font-weight: bold;
+}
+.famous_topic .famous_topic_rank span {
+  color: var(--text_color);
+}
+
+#infiniteScrolling .infiniteScrolling_item {
+  background-color: var(--card_body);
+  border: 1px solid var(--border_color);
+  border-radius: 5px;
+}/*# sourceMappingURL=home_page.css.map */

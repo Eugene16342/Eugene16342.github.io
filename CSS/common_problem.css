@@ -1,0 +1,13 @@
+@import "index.css";
+.common_problem .btn {
+  background-color: var(--deep);
+  border-color: var(--border_color);
+  color: var(--text_color);
+}
+.common_problem .btn:hover {
+  background-color: var(--light);
+  color: white;
+}
+.common_problem .text {
+  color: var(--text_color);
+}/*# sourceMappingURL=common_problem.css.map */
