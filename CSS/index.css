@@ -44,6 +44,7 @@ body.dark_mode {
 }
 
 .card-body {
+  border-radius: 5px;
   background-color: var(--card_body);
   color: var(--text_color);
 }
@@ -352,16 +353,19 @@ input:focus {
   }
 }
 @media screen and (max-width: 768px) {
+  .navbar_margin {
+    margin-bottom: 50px;
+  }
   .navBar_left .Logo {
-    width: 200px !important;
+    width: 110px !important;
   }
   .navBar_left .search_bar input {
-    width: 100px !important;
+    width: 100% !important;
+    min-width: 100px;
     font-size: smaller;
   }
   .navBar_right {
     align-items: center;
-    margin-top: -10px;
     justify-content: flex-end;
     flex-direction: row !important;
   }

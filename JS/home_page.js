@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
   let hot_topic = [
     {
@@ -443,4 +442,50 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
+
+  function setupScrolling(
+    containerSelector,
+    nextBtnSelector,
+    preBtnSelector,
+    scrollAmount
+  ) {
+    let container = document.querySelector(containerSelector);
+    let nextBtn = document.querySelector(nextBtnSelector);
+    let preBtn = document.querySelector(preBtnSelector);
+
+    let scrollInterval; // 用於存儲setInterval的ID
+
+    // 為按鈕添加mousedown事件監聽器
+    nextBtn.addEventListener("mousedown", function () {
+      scrollInterval = setInterval(function () {
+        container.scrollLeft += scrollAmount;
+      }, 15); // 每20毫秒滑動一次
+    });
+
+    preBtn.addEventListener("mousedown", function () {
+      scrollInterval = setInterval(function () {
+        container.scrollLeft -= scrollAmount;
+      }, 15);
+    });
+
+    // 為按鈕添加mouseup和mouseleave事件監聽器
+    nextBtn.addEventListener("mouseup", function () {
+      clearInterval(scrollInterval); // 停止滑動
+    });
+
+    nextBtn.addEventListener("mouseleave", function () {
+      clearInterval(scrollInterval); // 如果鼠標離開按鈕，也停止滑動
+    });
+
+    preBtn.addEventListener("mouseup", function () {
+      clearInterval(scrollInterval);
+    });
+
+    preBtn.addEventListener("mouseleave", function () {
+      clearInterval(scrollInterval);
+    });
+  }
+
+  // 使用函數設置滾動
+  setupScrolling(".Store_Container", ".btn_next", ".btn_pre", 8);
 });
