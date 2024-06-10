@@ -1,292 +1,295 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let hot_topic = [
-    {
-      board: "寵物天地",
-      title: "【閒聊】吉娃國吉娃兵",
-      click: 8887,
-    },
-    {
-      board: "動漫遊戲",
-      title: "【閒聊】那些當初吹星空可以和伯德3拚年度遊戲的人哪去了",
-      click: 5467,
-    },
-    {
-      board: "職場工作",
-      title: "【閒聊】第一天上班，問都問",
-      click: 3456,
-    },
-    {
-      board: "烹飪廚藝",
-      title: "【分享】有批牛肉好便宜的阿，有需要就打這支電話",
-      click: 3333,
-    },
-    {
-      board: "投資理財",
-      title: "【問題】新手請教，股票損益是負的，可以打給營業員讓他變正的嗎",
-      click: 2345,
-    },
-    {
-      board: "八卦閒聊",
-      title: "【求助】本能寺這邊失火了，我卻出不去，誰能幫打119一下？",
-      click: 1235,
-    },
-    {
-      board: "八卦閒聊",
-      title: "【閒聊】我認為空手道是世上最強的武術，不服來辯",
-      click: 1234,
-    },
-    {
-      board: "動漫遊戲",
-      title: "【閒聊】寧次明明就會八卦掌，幹嘛用身體擋",
-      click: 1233,
-    },
-    {
-      board: "明星網紅",
-      title: "【閒聊】這人是誰，怎麼新聞一直報",
-      click: 1232,
-    },
-    {
-      board: "很長很長很長很長很長的標題",
-      title:
-        "【很長】很長很長很長很長很長很長很長很長很長很長很長很長很長很長很長很長很長很長很長很很長很長很長很長很長很",
-      click: 123456789,
-    },
-  ];
+  function setupTopics() {
+    let hot_topic = [
+      {
+        board: "寵物天地",
+        title: "【閒聊】吉娃國吉娃兵",
+        click: 8887,
+      },
+      {
+        board: "動漫遊戲",
+        title: "【閒聊】那些當初吹星空可以和伯德3拚年度遊戲的人哪去了",
+        click: 5467,
+      },
+      {
+        board: "職場工作",
+        title: "【閒聊】第一天上班，問都問",
+        click: 3456,
+      },
+      {
+        board: "烹飪廚藝",
+        title: "【分享】有批牛肉好便宜的阿，有需要就打這支電話",
+        click: 3333,
+      },
+      {
+        board: "投資理財",
+        title: "【問題】新手請教，股票損益是負的，可以打給營業員讓他變正的嗎",
+        click: 2345,
+      },
+      {
+        board: "八卦閒聊",
+        title: "【求助】本能寺這邊失火了，我卻出不去，誰能幫打119一下？",
+        click: 1235,
+      },
+      {
+        board: "八卦閒聊",
+        title: "【閒聊】我認為空手道是世上最強的武術，不服來辯",
+        click: 1234,
+      },
+      {
+        board: "動漫遊戲",
+        title: "【閒聊】寧次明明就會八卦掌，幹嘛用身體擋",
+        click: 1233,
+      },
+      {
+        board: "明星網紅",
+        title: "【閒聊】這人是誰，怎麼新聞一直報",
+        click: 1232,
+      },
+      {
+        board: "很長很長很長很長很長的標題",
+        title:
+          "【很長】很長很長很長很長很長很長很長很長很長很長很長很長很長很長很長很長很長很長很長很很長很長很長很長很長很",
+        click: 123456789,
+      },
+    ];
 
-  let gossiping_topic = [
-    {
-      board: "寵物天地",
-      title: "【閒聊】吉娃國吉娃兵",
-      click: 8887,
-    },
-    {
-      board: "職場工作",
-      title: "【閒聊】讀書比較輕鬆還是上班比較輕鬆",
-      click: 5555,
-    },
-    {
-      board: "職場工作",
-      title: "【閒聊】第一天上班，問都問",
-      click: 3456,
-    },
-    {
-      board: "烹飪廚藝",
-      title: "【分享】有批牛肉好便宜的阿，有需要就打這支電話",
-      click: 3333,
-    },
-    {
-      board: "烹飪廚藝",
-      title: "【問題】哪裡有便宜的牛肉",
-      click: 2345,
-    },
-    {
-      board: "八卦閒聊",
-      title: "【求助】本能寺這邊失火了，我卻出不去，誰能幫打119一下？",
-      click: 1235,
-    },
-    {
-      board: "八卦閒聊",
-      title: "【閒聊】我認為空手道是世上最強的武術，不服來辯",
-      click: 1234,
-    },
-    {
-      board: "寵物天地",
-      title: "【閒聊】王爸爸狗園有吉娃娃嗎",
-      click: 852,
-    },
-    {
-      board: "動漫遊戲",
-      title: "【閒聊】庫拉皮卡還要幾年才能下船",
-      click: 682,
-    },
-    {
-      board: "明星網紅",
-      title: "【閒聊】這人是誰，怎麼新聞一直報",
-      click: 125,
-    },
-  ];
+    let gossiping_topic = [
+      {
+        board: "寵物天地",
+        title: "【閒聊】吉娃國吉娃兵",
+        click: 8887,
+      },
+      {
+        board: "職場工作",
+        title: "【閒聊】讀書比較輕鬆還是上班比較輕鬆",
+        click: 5555,
+      },
+      {
+        board: "職場工作",
+        title: "【閒聊】第一天上班，問都問",
+        click: 3456,
+      },
+      {
+        board: "烹飪廚藝",
+        title: "【分享】有批牛肉好便宜的阿，有需要就打這支電話",
+        click: 3333,
+      },
+      {
+        board: "烹飪廚藝",
+        title: "【問題】哪裡有便宜的牛肉",
+        click: 2345,
+      },
+      {
+        board: "八卦閒聊",
+        title: "【求助】本能寺這邊失火了，我卻出不去，誰能幫打119一下？",
+        click: 1235,
+      },
+      {
+        board: "八卦閒聊",
+        title: "【閒聊】我認為空手道是世上最強的武術，不服來辯",
+        click: 1234,
+      },
+      {
+        board: "寵物天地",
+        title: "【閒聊】王爸爸狗園有吉娃娃嗎",
+        click: 852,
+      },
+      {
+        board: "動漫遊戲",
+        title: "【閒聊】庫拉皮卡還要幾年才能下船",
+        click: 682,
+      },
+      {
+        board: "明星網紅",
+        title: "【閒聊】這人是誰，怎麼新聞一直報",
+        click: 125,
+      },
+    ];
 
-  let anime_topic = [
-    {
-      board: "美式卡通",
-      title: "【閒聊】驚奇數位馬戲團半年三億點閱是不是有點扯",
-      click: 9987,
-    },
-    {
-      board: "刃牙",
-      title:
-        "【情報】動畫電影《範馬刃牙 vs 拳願阿修羅》2024年6月6日Netflix配信",
-      click: 5555,
-    },
-    {
-      board: "拳願阿修羅",
-      title: "【問題】緬甸哥什麼咖 挑出來打花山是瞧不起誰",
-      click: 3456,
-    },
-    {
-      board: "英雄聯盟",
-      title: "【情報】14.11平衡預覽，換線套路",
-      click: 3333,
-    },
-    {
-      board: "動漫遊戲",
-      title: "【討論】來討論歷年來心中神作前幾名的動畫",
-      click: 2345,
-    },
-    {
-      board: "獵人 Hunter x Hunter",
-      title: "【問題】本來以為還要等個一兩年",
-      click: 1235,
-    },
-    {
-      board: "英雄聯盟",
-      title: "【問題】名人堂票選名單",
-      click: 1234,
-    },
-    {
-      board: "爐石戰紀",
-      title: "【閒聊】雙打模式484沒什麼料",
-      click: 852,
-    },
-    {
-      board: "STEAM",
-      title: "【情報】來啦！ 新的預告片與發售日期！",
-      click: 682,
-    },
-    {
-      board: "魁男塾",
-      title: "【閒聊】宮下亞喜羅原本484想畫校園漫畫，結果不小心畫成格鬥漫畫ㄌ",
-      click: 125,
-    },
-  ];
+    let anime_topic = [
+      {
+        board: "美式卡通",
+        title: "【閒聊】驚奇數位馬戲團半年三億點閱是不是有點扯",
+        click: 9987,
+      },
+      {
+        board: "刃牙",
+        title:
+          "【情報】動畫電影《範馬刃牙 vs 拳願阿修羅》2024年6月6日Netflix配信",
+        click: 5555,
+      },
+      {
+        board: "拳願阿修羅",
+        title: "【問題】緬甸哥什麼咖 挑出來打花山是瞧不起誰",
+        click: 3456,
+      },
+      {
+        board: "英雄聯盟",
+        title: "【情報】14.11平衡預覽，換線套路",
+        click: 3333,
+      },
+      {
+        board: "動漫遊戲",
+        title: "【討論】來討論歷年來心中神作前幾名的動畫",
+        click: 2345,
+      },
+      {
+        board: "獵人 Hunter x Hunter",
+        title: "【問題】本來以為還要等個一兩年",
+        click: 1235,
+      },
+      {
+        board: "英雄聯盟",
+        title: "【問題】名人堂票選名單",
+        click: 1234,
+      },
+      {
+        board: "爐石戰紀",
+        title: "【閒聊】雙打模式484沒什麼料",
+        click: 852,
+      },
+      {
+        board: "STEAM",
+        title: "【情報】來啦！ 新的預告片與發售日期！",
+        click: 682,
+      },
+      {
+        board: "魁男塾",
+        title:
+          "【閒聊】宮下亞喜羅原本484想畫校園漫畫，結果不小心畫成格鬥漫畫ㄌ",
+        click: 125,
+      },
+    ];
 
-  let series_topic = [
-    {
-      board: "熱門影集",
-      title: "【情報】黑袍糾察隊第4季預告",
-      click: 3241,
-    },
-    {
-      board: "電影視界",
-      title: "【心得】九龍城寨之圍城",
-      click: 1255,
-    },
-    {
-      board: "熱門影集",
-      title:
-        "【心得】《人生複本》絕對必看 最好買小說 真的滿分 平行宇宙又帶省思意味",
-      click: 1112,
-    },
-    {
-      board: "電影視界",
-      title: "【閒聊】動畫電影《八戒》真的有那麼糟嗎?",
-      click: 985,
-    },
-    {
-      board: "熱門影集",
-      title:
-        "【情報】《沙丘》前傳影集《沙丘：預言》前導預告曝光　時間背景設定本傳一萬年前",
-      click: 945,
-    },
-    {
-      board: "熱門影集",
-      title: "【情報】亞馬遜Prime Video即將製作《古墓奇兵》真人影集版",
-      click: 877,
-    },
-    {
-      board: "熱門影集",
-      title: "【情報】私刑教育影集版第五季 前導預告公開",
-      click: 689,
-    },
-    {
-      board: "電影視界",
-      title: "【閒聊】原來我們看的林正英自導自演的一眉道人士是刪減版.........",
-      click: 601,
-    },
-    {
-      board: "熱門影集",
-      title: "【情報】鬼娃恰吉影集版第三季 預告",
-      click: 553,
-    },
-    {
-      board: "電影視界",
-      title: "【問題】社群網站這部電影，哪些是真，哪些是假?",
-      click: 413,
-    },
-  ];
+    let series_topic = [
+      {
+        board: "熱門影集",
+        title: "【情報】黑袍糾察隊第4季預告",
+        click: 3241,
+      },
+      {
+        board: "電影視界",
+        title: "【心得】九龍城寨之圍城",
+        click: 1255,
+      },
+      {
+        board: "熱門影集",
+        title:
+          "【心得】《人生複本》絕對必看 最好買小說 真的滿分 平行宇宙又帶省思意味",
+        click: 1112,
+      },
+      {
+        board: "電影視界",
+        title: "【閒聊】動畫電影《八戒》真的有那麼糟嗎?",
+        click: 985,
+      },
+      {
+        board: "熱門影集",
+        title:
+          "【情報】《沙丘》前傳影集《沙丘：預言》前導預告曝光　時間背景設定本傳一萬年前",
+        click: 945,
+      },
+      {
+        board: "熱門影集",
+        title: "【情報】亞馬遜Prime Video即將製作《古墓奇兵》真人影集版",
+        click: 877,
+      },
+      {
+        board: "熱門影集",
+        title: "【情報】私刑教育影集版第五季 前導預告公開",
+        click: 689,
+      },
+      {
+        board: "電影視界",
+        title:
+          "【閒聊】原來我們看的林正英自導自演的一眉道人士是刪減版.........",
+        click: 601,
+      },
+      {
+        board: "熱門影集",
+        title: "【情報】鬼娃恰吉影集版第三季 預告",
+        click: 553,
+      },
+      {
+        board: "電影視界",
+        title: "【問題】社群網站這部電影，哪些是真，哪些是假?",
+        click: 413,
+      },
+    ];
 
-  let other_topic = [
-    {
-      board: "八卦閒聊",
-      title: "【情報】美國男等公車遭撞嘆「行人地獄」網疑設計不良",
-      click: 12352,
-    },
-    {
-      board: "寵物天地",
-      title: "【閒聊】吉娃國吉娃兵",
-      click: 8887,
-    },
-    {
-      board: "職場工作",
-      title: "【閒聊】第一天上班，問都問",
-      click: 3456,
-    },
-    {
-      board: "烹飪廚藝",
-      title: "【分享】有批牛肉好便宜的阿，有需要就打這支電話",
-      click: 3333,
-    },
-    {
-      board: "投資理財",
-      title: "【問題】新手請教，股票損益是負的，可以打給營業員讓他變正的嗎",
-      click: 2345,
-    },
-    {
-      board: "八卦閒聊",
-      title: "【求助】本能寺這邊失火了，我卻出不去，誰能幫打119一下？",
-      click: 1235,
-    },
-    {
-      board: "八卦閒聊",
-      title: "【閒聊】我認為空手道是世上最強的武術，不服來辯",
-      click: 1234,
-    },
-    {
-      board: "明星網紅",
-      title: "【閒聊】這人是誰，怎麼新聞一直報",
-      click: 1232,
-    },
-    {
-      board: "明星網紅",
-      title: "【閒聊】椅子入監，椅粉何去何從",
-      click: 1233,
-    },
-    {
-      board: "八卦閒聊",
-      title: "【情報】殺人未遂逃犯身上沒錢！逃4天去工地2天　還沒領薪就被逮",
-      click: 1110,
-    },
-  ];
+    let other_topic = [
+      {
+        board: "八卦閒聊",
+        title: "【情報】美國男等公車遭撞嘆「行人地獄」網疑設計不良",
+        click: 12352,
+      },
+      {
+        board: "寵物天地",
+        title: "【閒聊】吉娃國吉娃兵",
+        click: 8887,
+      },
+      {
+        board: "職場工作",
+        title: "【閒聊】第一天上班，問都問",
+        click: 3456,
+      },
+      {
+        board: "烹飪廚藝",
+        title: "【分享】有批牛肉好便宜的阿，有需要就打這支電話",
+        click: 3333,
+      },
+      {
+        board: "投資理財",
+        title: "【問題】新手請教，股票損益是負的，可以打給營業員讓他變正的嗎",
+        click: 2345,
+      },
+      {
+        board: "八卦閒聊",
+        title: "【求助】本能寺這邊失火了，我卻出不去，誰能幫打119一下？",
+        click: 1235,
+      },
+      {
+        board: "八卦閒聊",
+        title: "【閒聊】我認為空手道是世上最強的武術，不服來辯",
+        click: 1234,
+      },
+      {
+        board: "明星網紅",
+        title: "【閒聊】這人是誰，怎麼新聞一直報",
+        click: 1232,
+      },
+      {
+        board: "明星網紅",
+        title: "【閒聊】椅子入監，椅粉何去何從",
+        click: 1233,
+      },
+      {
+        board: "八卦閒聊",
+        title: "【情報】殺人未遂逃犯身上沒錢！逃4天去工地2天　還沒領薪就被逮",
+        click: 1110,
+      },
+    ];
 
-  const hot = document.getElementById("hot_topic");
-  const gossiping = document.getElementById("gossiping_topic");
-  const anime = document.getElementById("anime_topic");
-  const series = document.getElementById("series_topic");
-  const other = document.getElementById("other_topic");
-  const topic_container = document.getElementById("topic_container");
+    const hot = document.getElementById("hot_topic");
+    const gossiping = document.getElementById("gossiping_topic");
+    const anime = document.getElementById("anime_topic");
+    const series = document.getElementById("series_topic");
+    const other = document.getElementById("other_topic");
+    const topic_container = document.getElementById("topic_container");
 
-  const lis = document.querySelectorAll(".famous_topic_chose li");
-  lis.forEach((li) => {
-    li.addEventListener("click", () => {
-      lis.forEach((otherli) => otherli.classList.remove("active"));
-      li.classList.add("active");
+    const lis = document.querySelectorAll(".famous_topic_chose li");
+    lis.forEach((li) => {
+      li.addEventListener("click", () => {
+        lis.forEach((otherli) => otherli.classList.remove("active"));
+        li.classList.add("active");
+      });
     });
-  });
 
-  function chiose_topic(topics) {
-    let topicHTML = "";
-    topics.forEach((topic, index) => {
-      topicHTML += `
+    function chiose_topic(topics) {
+      let topicHTML = "";
+      topics.forEach((topic, index) => {
+        topicHTML += `
     <div class="d-flex justify-content-between famous_topic_rank">
       <span class="col-0 num">${index + 1}</span>
       <span class="col-2 famous_topic_rank_title">
@@ -298,119 +301,119 @@ document.addEventListener("DOMContentLoaded", function () {
       <span class="text-center col-1">${topic.click}</span>
     </div>
   `;
-    });
-    topic_container.innerHTML = topicHTML;
-  }
+      });
+      topic_container.innerHTML = topicHTML;
+    }
 
-  chiose_topic(hot_topic);
-
-  hot.addEventListener("click", function () {
     chiose_topic(hot_topic);
-  });
 
-  gossiping.addEventListener("click", function () {
-    chiose_topic(gossiping_topic);
-  });
-  anime.addEventListener("click", function () {
-    chiose_topic(anime_topic);
-  });
-  series.addEventListener("click", function () {
-    chiose_topic(series_topic);
-  });
-  other.addEventListener("click", function () {
-    chiose_topic(other_topic);
-  });
+    hot.addEventListener("click", function () {
+      chiose_topic(hot_topic);
+    });
 
-  window.addEventListener("scroll", () => {
-    let infiniteScrolling_post = [
-      {
-        img_src: "./img/HomePage/infiniteScrolling11.jpg",
-        title: "【情報】柴犬迷因始祖「Kabosu」離世 主人證實：牠已經安息",
-        sort: "八卦閒聊",
-        likes: 11,
-        comments: 11,
-      },
-      {
-        img_src: "./img/HomePage/infiniteScrolling22.jpg",
-        title:
-          "【情報】動畫電影《範馬刃牙 vs 拳願阿修羅》2024年6月6日Netflix配信",
-        sort: "刃牙系列",
-        likes: 22,
-        comments: 22,
-      },
-      {
-        img_src: "./img/HomePage/infiniteScrolling33.jpg",
-        title: "【問題】新手請教，股票損益是負的，可以打給營業員讓他變正的嗎",
-        sort: "投資理財",
-        likes: 33,
-        comments: 33,
-      },
-      {
-        img_src: "./img/HomePage/infiniteScrolling44.jpg",
-        title:
-          "【很長】很長很長很長很長很長很長很長很長很長很長很長很長很長很長的標題看起來可以增加不規則的美感",
-        sort: "很長很長",
-        likes: 44,
-        comments: 44,
-      },
-      {
-        img_src: "./img/HomePage/infiniteScrolling55.jpg",
-        title: "【閒聊】第一天上班，問都問",
-        sort: "八卦閒聊",
-        likes: 55,
-        comments: 55,
-      },
-      {
-        img_src: "./img/HomePage/infiniteScrolling66.jpg",
-        title: "【閒聊】那些當初吹星空可以和柏德3拚年度遊戲的人哪去了",
-        sort: "動漫遊戲",
-        likes: 66,
-        comments: 66,
-      },
-      {
-        img_src: "./img/HomePage/infiniteScrolling77.jpg",
-        title: "【情報】美國男等公車遭撞嘆「行人地獄」網疑設計不良",
-        sort: "八卦閒聊",
-        likes: 77,
-        comments: 77,
-      },
-      {
-        img_src: "./img/HomePage/infiniteScrolling88.jpg",
-        title: "【閒聊】讀書比較輕鬆還是上班比較輕鬆",
-        sort: "八卦閒聊",
-        likes: 88,
-        comments: 88,
-      },
-      {
-        img_src: "./img/HomePage/infiniteScrolling99.jpg",
-        title:
-          "【情報】《沙丘》前傳影集《沙丘：預言》前導預告曝光　時間背景設定本傳一萬年前",
-        sort: "熱門影集",
-        likes: 99,
-        comments: 99,
-      },
-      {
-        img_src: "./img/HomePage/infiniteScrolling10.jpg",
-        title: "【閒聊】黑袍糾察隊第4季",
-        sort: "熱門影集",
-        likes: 10,
-        comments: 10,
-      },
-    ];
+    gossiping.addEventListener("click", function () {
+      chiose_topic(gossiping_topic);
+    });
+    anime.addEventListener("click", function () {
+      chiose_topic(anime_topic);
+    });
+    series.addEventListener("click", function () {
+      chiose_topic(series_topic);
+    });
+    other.addEventListener("click", function () {
+      chiose_topic(other_topic);
+    });
 
-    const containers = document.getElementsByClassName(
-      "infiniteScrolling_container"
-    );
-    let scrollHeight = document.documentElement.scrollHeight;
-    let scrollPosition = window.innerHeight + window.scrollY;
+    window.addEventListener("scroll", () => {
+      let infiniteScrolling_post = [
+        {
+          img_src: "./img/HomePage/infiniteScrolling11.jpg",
+          title: "【情報】柴犬迷因始祖「Kabosu」離世 主人證實：牠已經安息",
+          sort: "八卦閒聊",
+          likes: 11,
+          comments: 11,
+        },
+        {
+          img_src: "./img/HomePage/infiniteScrolling22.jpg",
+          title:
+            "【情報】動畫電影《範馬刃牙 vs 拳願阿修羅》2024年6月6日Netflix配信",
+          sort: "刃牙系列",
+          likes: 22,
+          comments: 22,
+        },
+        {
+          img_src: "./img/HomePage/infiniteScrolling33.jpg",
+          title: "【問題】新手請教，股票損益是負的，可以打給營業員讓他變正的嗎",
+          sort: "投資理財",
+          likes: 33,
+          comments: 33,
+        },
+        {
+          img_src: "./img/HomePage/infiniteScrolling44.jpg",
+          title:
+            "【很長】很長很長很長很長很長很長很長很長很長很長很長很長很長很長的標題看起來可以增加不規則的美感",
+          sort: "很長很長",
+          likes: 44,
+          comments: 44,
+        },
+        {
+          img_src: "./img/HomePage/infiniteScrolling55.jpg",
+          title: "【閒聊】第一天上班，問都問",
+          sort: "八卦閒聊",
+          likes: 55,
+          comments: 55,
+        },
+        {
+          img_src: "./img/HomePage/infiniteScrolling66.jpg",
+          title: "【閒聊】那些當初吹星空可以和柏德3拚年度遊戲的人哪去了",
+          sort: "動漫遊戲",
+          likes: 66,
+          comments: 66,
+        },
+        {
+          img_src: "./img/HomePage/infiniteScrolling77.jpg",
+          title: "【情報】美國男等公車遭撞嘆「行人地獄」網疑設計不良",
+          sort: "八卦閒聊",
+          likes: 77,
+          comments: 77,
+        },
+        {
+          img_src: "./img/HomePage/infiniteScrolling88.jpg",
+          title: "【閒聊】讀書比較輕鬆還是上班比較輕鬆",
+          sort: "八卦閒聊",
+          likes: 88,
+          comments: 88,
+        },
+        {
+          img_src: "./img/HomePage/infiniteScrolling99.jpg",
+          title:
+            "【情報】《沙丘》前傳影集《沙丘：預言》前導預告曝光　時間背景設定本傳一萬年前",
+          sort: "熱門影集",
+          likes: 99,
+          comments: 99,
+        },
+        {
+          img_src: "./img/HomePage/infiniteScrolling10.jpg",
+          title: "【閒聊】黑袍糾察隊第4季",
+          sort: "熱門影集",
+          likes: 10,
+          comments: 10,
+        },
+      ];
 
-    if (scrollPosition / scrollHeight >= 0.8) {
-      for (let i = 0; i < containers.length; i++) {
-        let post =
-          infiniteScrolling_post[
-            Math.floor(Math.random() * infiniteScrolling_post.length)
-          ];
-        containers[i].innerHTML += `           
+      const containers = document.getElementsByClassName(
+        "infiniteScrolling_container"
+      );
+      let scrollHeight = document.documentElement.scrollHeight;
+      let scrollPosition = window.innerHeight + window.scrollY;
+
+      if (scrollPosition / scrollHeight >= 0.8) {
+        for (let i = 0; i < containers.length; i++) {
+          let post =
+            infiniteScrolling_post[
+              Math.floor(Math.random() * infiniteScrolling_post.length)
+            ];
+          containers[i].innerHTML += `           
       <div class="infiniteScrolling_item mb-2">
         <a href="" class=" w-100 h-100">
           <img
@@ -439,9 +442,166 @@ document.addEventListener("DOMContentLoaded", function () {
         </small>
       </div>
       `;
+        }
       }
-    }
-  });
+    });
+  }
+
+  function setPointStoreContent() {
+    let goods = [
+      {
+        img: "./img/HomePage/goods1.jpg",
+        name: "VR頭盔之類的",
+        price: 12300,
+      },
+      {
+        img: "./img/HomePage/goods2.jpg",
+        name: "遊戲手把之類的",
+        price: 5678,
+      },
+      {
+        img: "./img/HomePage/goods3.jpg",
+        name: "很大的滑鼠墊",
+        price: 1234,
+      },
+      {
+        img: "./img/HomePage/goods4.jpg",
+        name: "應該是音響吧把八八八八八八八",
+        price: 9876,
+      },
+      {
+        img: "./img/HomePage/goods5.jpg",
+        name: "叉叉盒子通行證",
+        price: 599,
+      },
+      {
+        img: "./img/HomePage/goods6.jpg",
+        name: "某點卡",
+        price: 450,
+      },
+      {
+        img: "./img/HomePage/goods7.jpg",
+        name: "賴點卡",
+        price: 60,
+      },
+      {
+        img: "./img/HomePage/goods8.jpg",
+        name: "日本大廠點卡",
+        price: 1000,
+      },
+      {
+        img: "./img/HomePage/goods9.jpg",
+        name: "美國打大廠點卡",
+        price: 3000,
+      },
+      {
+        img: "./img/HomePage/goods10.jpg",
+        name: "看起來像中空的滑鼠",
+        price: 9999,
+      },
+      {
+        img: "./img/HomePage/goods11.jpg",
+        name: "看起來很站位置的鍵盤",
+        price: 8888,
+      },
+      {
+        img: "./img/HomePage/goods12.jpg",
+        name: "耳機",
+        price: 11111,
+      },
+      {
+        img: "./img/HomePage/goods1.jpg",
+        name: "VR頭盔之類的",
+        price: 12300,
+      },
+      {
+        img: "./img/HomePage/goods2.jpg",
+        name: "遊戲手把之類的",
+        price: 5678,
+      },
+      {
+        img: "./img/HomePage/goods3.jpg",
+        name: "很大的滑鼠墊",
+        price: 1234,
+      },
+      {
+        img: "./img/HomePage/goods4.jpg",
+        name: "應該是音響吧把八八八八八八八",
+        price: 9876,
+      },
+      {
+        img: "./img/HomePage/goods5.jpg",
+        name: "叉叉盒子通行證",
+        price: 599,
+      },
+      {
+        img: "./img/HomePage/goods6.jpg",
+        name: "某點卡",
+        price: 450,
+      },
+      {
+        img: "./img/HomePage/goods7.jpg",
+        name: "賴點卡",
+        price: 60,
+      },
+      {
+        img: "./img/HomePage/goods8.jpg",
+        name: "日本大廠點卡",
+        price: 1000,
+      },
+      {
+        img: "./img/HomePage/goods9.jpg",
+        name: "美國打大廠點卡",
+        price: 3000,
+      },
+      {
+        img: "./img/HomePage/goods10.jpg",
+        name: "看起來像中空的滑鼠",
+        price: 9999,
+      },
+      {
+        img: "./img/HomePage/goods11.jpg",
+        name: "看起來很站位置的鍵盤",
+        price: 8888,
+      },
+      {
+        img: "./img/HomePage/goods12.jpg",
+        name: "耳機",
+        price: 11111,
+      },
+    ];
+    let containerRow1 = document.querySelector(
+      ".Store_Container .Store_Container_row:nth-child(1)"
+    );
+    let containerRow2 = document.querySelector(
+      ".Store_Container .Store_Container_row:nth-child(2)"
+    );
+
+    let htmlStr1 = "";
+    let htmlStr2 = "";
+
+    goods.forEach((good, index) => {
+      // 創建卡片HTML
+      let cardHTML = `
+        <div class="card">
+          <img src="${good.img}" class="filter card-img-top">
+          <div class="card-body">
+            <a href="" class="card-text">${good.name}</a>
+            <span class="Goods_Info_Price">$${good.price}點</span>
+          </div>
+        </div>
+      `;
+
+      // 根據索引將卡片拆成兩行
+      if (index % 2 === 0) {
+        htmlStr1 += cardHTML;
+      } else {
+        htmlStr2 += cardHTML;
+      }
+    });
+    containerRow1.innerHTML = htmlStr1;
+    containerRow2.innerHTML = htmlStr2;
+  }
 
   function setupScrolling(
     containerSelector,
@@ -487,5 +647,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // 使用函數設置滾動
+  setupTopics();
+  setPointStoreContent();
   setupScrolling(".Store_Container", ".btn_next", ".btn_pre", 8);
 });

@@ -116,7 +116,7 @@
         padding: 0px 5px;
         .card-text {
           display: -webkit-box;
-          -webkit-line-clamp: 2; //文本只顯示垂直的兩行
+          -webkit-line-clamp: 1; //文本只顯示垂直的一行
           -webkit-box-orient: vertical;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -170,5 +170,19 @@
     background-color: var(--card_body);
     border: 1px solid var(--border_color);
     border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #infiniteScrolling {
+    .RWD_none {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #infiniteScrolling {
+    display: none;
   }
 }

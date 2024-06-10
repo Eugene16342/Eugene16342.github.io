@@ -109,7 +109,7 @@
 }
 .PointStore .Store_Container .Store_Container_row .card-body .card-text {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -160,4 +160,15 @@
   background-color: var(--card_body);
   border: 1px solid var(--border_color);
   border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  #infiniteScrolling .RWD_none {
+    display: none;
+  }
+}
+@media screen and (max-width: 576px) {
+  #infiniteScrolling {
+    display: none;
+  }
 }/*# sourceMappingURL=home_page.css.map */
