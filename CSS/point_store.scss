@@ -1,0 +1,158 @@
+@import "index.css";
+
+.store_search_bar_container {
+  border: 1px solid var(--border_color);
+  border-right: none;
+  border-bottom: none;
+  border-radius: 5px 0px 0px 0px;
+  background-color: var(--deep);
+
+  .store_search_bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .store_search_input {
+    border: none;
+    width: 80%;
+    height: 40px;
+    background-color: var(--background-color);
+    border-radius: 10px 0 0 10px;
+  }
+
+  .store_search_btn {
+    background-color: var(--background-color);
+    color: var(--text_color);
+    border-radius: 0 10px 10px 0;
+    width: 30px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    img {
+      display: flex;
+      align-self: center;
+    }
+  }
+}
+
+.shopping_info {
+  border: 1px solid var(--border_color);
+  border-left: none;
+  border-bottom: none;
+  border-radius: 0px 5px 0px 0px;
+  height: 80px;
+  background-color: var(--deep);
+  .icons {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    svg {
+      width: 30px;
+      height: 100%;
+    }
+
+    .shopping_icon {
+      font-weight: 500;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: 0.2s;
+      &:hover {
+        color: var(--text_hover);
+      }
+    }
+  }
+}
+
+.PointStore {
+  background-color: var(--card_body);
+  border: 1px solid var(--border_color);
+  border-top: none;
+  border-bottom: none;
+  position: relative;
+  overflow: hidden;
+  &:hover {
+    .Store_Container_btn {
+      .btn_next {
+        right: -2px;
+      }
+      .btn_pre {
+        left: -2px;
+      }
+    }
+  }
+  .Store_Container_border {
+    padding: 15px;
+  }
+  .Store_Container {
+    overflow: auto; /* 改為auto，只有在需要時才會出現滾動條 */
+    scrollbar-width: none; /* 對於Firefox */
+    -ms-overflow-style: none; /* 對於Internet Explorer和Edge */
+    &::-webkit-scrollbar {
+      /* 對於Chrome、Safari和Opera */
+      display: none;
+    }
+    .Store_Container_row {
+      display: flex;
+      padding: 5px;
+      .card {
+        min-width: 180px;
+        min-height: 223px;
+        margin: 0px 2.5px;
+      }
+      .card-body {
+        border-radius: 0px 0px 5px 5px;
+        padding: 0px 5px;
+        .card-text {
+          display: -webkit-box;
+          -webkit-line-clamp: 1; //文本只顯示垂直的一行
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin-bottom: 10px;
+          &:hover {
+            color: var(--deeper);
+          }
+        }
+        .Goods_Info_Price {
+          margin-left: 40%;
+          font-weight: 900;
+          font-size: larger;
+        }
+      }
+    }
+  }
+}
+.Store_Container_btn {
+  .btn_next,
+  .btn_pre {
+    color: var(--deep);
+    font-weight: 900;
+    font-size: 1.2rem;
+    width: 30px;
+    height: 60px;
+    background-color: var(--light);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    border-radius: 5px;
+    transition: 0.2s;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+      color: var(--text_color);
+      background-color: var(--deep);
+    }
+  }
+  .btn_next {
+    right: -20px;
+  }
+  .btn_pre {
+    left: -20px;
+  }
+}

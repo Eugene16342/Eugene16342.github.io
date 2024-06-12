@@ -11,10 +11,10 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" type="text/css" href="./CSS/index.css" />
-    <link rel="stylesheet" type="text/css" href="./CSS/home_page.css">
+    <link rel="stylesheet" type="text/css" href="./CSS/point_store.css" />
     <script src="./src/popper.min.js"></script>
     <script src="./src/bootstrap.min.js"></script>
-    <script src="./JS/home_page.js"></script>
+    <script src="./JS/point_store.js"></script>
     <script src="./JS/commen_setting.js"></script>
   </head>
   <body>
@@ -462,329 +462,122 @@
     </div>
 
     <div class="container">
-      <div class="row">
-
-        <div id="carouselExampleCaptions" class="carousel slide"  data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="0"
-              class="active"
-              aria-current="true"
-              aria-label="Slide 1"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="1"
-              aria-label="Slide 2"
-            ></button>
-            <button
-              type="button"
-              data-bs-target="#carouselExampleCaptions"
-              data-bs-slide-to="2"
-              aria-label="Slide 3"
-            ></button>
-          </div>
-          <div class="carousel-inner">
-            <a href="">
-              <div class="carousel-item active " data-bs-interval="3000">
-                <img
-                  src="./img/HomePage/homepage_carousel1.jpg"
-                  style="height: 300px"
-                  class="filter d-block w-100 object-fit-cover"
+      <div class="nav">
+        <div class="store_search_bar_container col-8">
+          <div class="store_search_bar">
+            <input
+              class="store_search_input"
+              type="text"
+              placeholder="搜點甚麼吧"
+            />
+            <button class="store_search_btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-search d-flex"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
                 />
-                <div class="carousel-caption d-none d-md-block carousel_text">
-                  <p>
-                    《活俠傳Legend of Mortal》將會參與6月的Steam新品節
-                    <br />並且在2024年6月19日於Steam平台正式發售！
-                  </p>
-                </div>
-              </div>
-            </a>
-            <a href="">
-              <div class="carousel-item" data-bs-interval="3000">
-                <img
-                  src="./img/HomePage/homepage_carousel2.jpg"
-                  style="height: 300px"
-                  class="filter d-block w-100 object-fit-cover"
-                />
-                <div class="carousel-caption d-none d-md-block carousel_text">
-                  <p>
-                    《《八戒》決戰未來》<br />由導演邱立偉聯手製作團隊，榮獲金馬獎最佳動畫長片及
-                    20 多項國際影展大獎肯定。
-                  </p>
-                </div>
-              </div>
-            </a>
-            <a href="">
-              <div class="carousel-item" data-bs-interval="3000">
-                <img
-                  src="./img/HomePage/homepage_carousel3.jpg"
-                  style="height: 300px"
-                  class="filter d-block w-100 object-fit-cover"
-                />
-                <div class="carousel-caption d-none d-md-block carousel_text">
-                  <p>
-                    Xperia 1 VI
-                    全新望遠光學變焦鏡頭可輕鬆捕捉遠處被攝主體的影像<br />無論是長焦微距或人像拍攝都能展現絕不妥協的頂級畫質。
-                  </p>
-                </div>
-              </div>
-            </a>
-          </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-
-        <div class="card-group">
-          <div class="card">
-            <a href="" class="card w-100 h-100">
-              <img
-                src="./img/HomePage/homepage_card1.jpg"
-                class="filter w-100 h-100"
-              />
-            </a>
-            <div class="card-body">
-              <h5 class="card-title">
-                <a class="text_hover" href=""
-                  >宣布 8K 版 One 3 Pro 納斯卡發售</a
-                >
-              </h5>
-              <p class="card-text">
-                <small class="text-body-secondary">
-                  <a class="text_hover" href="">#硬體</a>
-                  <a class="text_hover" href="">#鍵盤</a>
-                </small>
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <a href="" class="card d-block w-100 h-100">
-              <img
-                class=" filter w-100 h-100"
-                src="./img/HomePage/homepage_card3.jpg"
-              />
-            </a>
-            <div class="card-body">
-              <h5 class="card-title">
-                <a class="text_hover" href=""
-                  >《沙丘：第二部》將於5月21日在HBO上架
-                </a>
-              </h5>
-              <p class="card-text">
-                <small class="text-body-secondary">
-                  <a class="text_hover" href=""> #影劇</a>
-                </small>
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <a href="" class="card d-block w-100 h-100">
-              <img
-                class="filter w-100 h-100"
-                src="./img/HomePage/homepage_card2.jpg"
-              />
-            </a>
-            <div class="card-body">
-              <h5 class="card-title">
-                <a class="text_hover" href=""
-                  >Sony 公布 2023 年度財報 營收再創新高</a
-                >
-              </h5>
-              <p class="card-text">
-                <small class="text-body-secondary">
-                  <a class="text_hover" href=""> #其他</a>
-                </small>
-              </p>
-            </div>
+              </svg>
+            </button>
           </div>
         </div>
 
-        <div class="container mt-3">
-          <div class="famous_topic">
-            <ul class="famous_topic_chose">
-              <li class="active" id="hot_topic">熱門話題</li>
-              <li id="gossiping_topic">八卦閒聊</li>
-              <li id="anime_topic">動漫遊戲</li>
-              <li id="series_topic">影視作品</li>
-              <li id="other_topic">其他</li>
-            </ul>
-            <div class="d-flex justify-content-between famous_topic_fixed">
-              <span class="col-0 px-2"></span>
-              <span class="col-2 text-center">板塊</span>
-              <span class="col-8 text-center">標題</span>
-              <span class="col-1 text-center">點閱</span>
-            </div>
-            <div id="topic_container">
-            <!--內容由JS生產 -->
-            </div>
+        <div class="shopping_info col-4">
+          <div class="icons">
+            <a href="" class="shopping_icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-cart4"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"
+                />
+              </svg>
+              購物車
+            </a>
+            <a href="" class="shopping_icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-file-text"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5M5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"
+                />
+                <path
+                  d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"
+                />
+              </svg>
+              你的訂單
+            </a>
+            <a href="" class="shopping_icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-mailbox-flag"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M10.5 8.5V3.707l.854-.853A.5.5 0 0 0 11.5 2.5v-2A.5.5 0 0 0 11 0H9.5a.5.5 0 0 0-.5.5v8zM5 7c0 .334-.164.264-.415.157C4.42 7.087 4.218 7 4 7s-.42.086-.585.157C3.164 7.264 3 7.334 3 7a1 1 0 0 1 2 0"
+                />
+                <path
+                  d="M4 3h4v1H6.646A4 4 0 0 1 8 7v6h7V7a3 3 0 0 0-3-3V3a4 4 0 0 1 4 4v6a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V7a4 4 0 0 1 4-4m0 1a3 3 0 0 0-3 3v6h6V7a3 3 0 0 0-3-3"
+                />
+              </svg>
+              信件
+            </a>
+            <a href="" class="shopping_icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-exclamation-circle"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"
+                />
+                <path
+                  d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"
+                />
+              </svg>
+              常見問題
+            </a>
           </div>
         </div>
+      </div>
 
-        <div class="mt-3">
-          <div class="PointStore">
-            <a class="PointStore_Title" href="./point_store.html">點數商城</a>
-            <div class="Store_Container_border">
+      <div class="mt-0">
+        <div class="PointStore">
+          <div class="Store_Container_border">
             <div class="Store_Container">
               <div class="Store_Container_row">
                 <!--內容由JS生成-->
               </div>
-              <div class="Store_Container_row">
-                <!--內容由JS生成-->
-              </div>
             </div>
           </div>
-            <div class="Store_Container_btn">
-              <span class="btn_next">→</span>
-              <span class="btn_pre">←</span>
-            </div>
+          <div class="Store_Container_btn">
+            <span class="btn_next">→</span>
+            <span class="btn_pre">←</span>
           </div>
         </div>
-
-        <div class="container mt-3" id="infiniteScrolling">
-          <div class="row">
-            <div class="infiniteScrolling_container col-md-3 col-sm-4">
-              <div class="infiniteScrolling_item mb-2">
-                  <a href="./post.html" target="_blank" class=" w-100 h-100">
-                    <img
-                      class=" filter w-100 h-100"
-                      src="./img/HomePage/infiniteScrolling1.jpg"
-                    />
-                  </a>
-                <p class="p-2">
-                  <a class="text_hover fw-bold" href="./post.html" target="_blank"
-                    >【閒聊】相撲道這章節到底來幹嘛的</a
-                  >
-                </p>
-                <small class="text ps-2">
-                  <a>刃牙系列</a>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
-                    <path d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2 2 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a10 10 0 0 0-.443.05 9.4 9.4 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a9 9 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.2 2.2 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.9.9 0 0 1-.121.416c-.165.288-.503.56-1.066.56z"/>
-                  </svg>
-                  </span>
-                  <a>6</a>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                    <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
-                    <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2"/>
-                  </svg>
-                  </span>
-                  <a>12</a>
-                </small>
-              </div>
-              
-            </div>
-            <div  class="infiniteScrolling_container col-md-3 col-sm-4">
-              <div class="infiniteScrolling_item mb-2">
-                  <a href="./post.html" target="_blank" class=" w-100 h-100">
-                    <img
-                      class="filter w-100 h-100"
-                      src="./img/HomePage/infiniteScrolling4.jpg"
-                    />
-                  </a>
-                <p class="p-2">
-                  <a class="text_hover fw-bold" href="./post.html" target="_blank"
-                    >【規則怪談】大象是一種體型巨大、有著扇子一般的耳朵、鼻子很長、腿粗得像柱子的生物，而且不是白色的。 請確保你在大象園區看見的是且只有大象。</a
-                  >
-                </p>
-                <small class="text ps-2">
-                  <a>搬運</a>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
-                    <path d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2 2 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a10 10 0 0 0-.443.05 9.4 9.4 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a9 9 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.2 2.2 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.9.9 0 0 1-.121.416c-.165.288-.503.56-1.066.56z"/>
-                  </svg>
-                  </span>
-                  <a>853</a>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                    <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
-                    <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2"/>
-                  </svg>
-                  </span>
-                  <a>84</a>
-                </small>
-              </div>
-            </div>
-            <div class="infiniteScrolling_container col-md-3 col-sm-4">
-              <div class="infiniteScrolling_item mb-2">
-                  <a href="./post.html" target="_blank" class=" w-100 h-100">
-                    <img
-                      class="filter w-100 h-100"
-                      src="./img/HomePage/infiniteScrolling3.jpg"
-                    />
-                  </a>
-                <p class="p-2">
-                  <a class="text_hover fw-bold" href="./post.html" target="_blank"
-                    >Wakfu_頂置_介紹_推廣</a
-                  >
-                </p>
-                <small class="text ps-2">
-                  <a>日誌</a>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
-                    <path d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2 2 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a10 10 0 0 0-.443.05 9.4 9.4 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a9 9 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.2 2.2 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.9.9 0 0 1-.121.416c-.165.288-.503.56-1.066.56z"/>
-                  </svg>
-                  </span>
-                  <a>28</a>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                    <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
-                    <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2"/>
-                  </svg>
-                  </span>
-                  <a>3</a>
-                </small>
-              </div>
-            </div>
-            <div class="infiniteScrolling_container col-md-3 RWD_none">
-              <div class="infiniteScrolling_item mb-2">
-                  <a href="./post.html" target="_blank" class=" w-100 h-100">
-                    <img
-                      class=" filter w-100 h-100"
-                      src="./img/HomePage/infiniteScrolling2.jpg"
-                    />
-                  </a>
-                <p class="p-2">
-                  <a class="text_hover fw-bold" href="./post.html" target="_blank"
-                    >【討論】為甚麼吉娃大部分都是女生養的有沒有掛</a
-                  >
-                </p>
-                <small class="text ps-2">
-                  <a>寵物毛孩</a>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
-                    <path d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2 2 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a10 10 0 0 0-.443.05 9.4 9.4 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a9 9 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.2 2.2 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.9.9 0 0 1-.121.416c-.165.288-.503.56-1.066.56z"/>
-                  </svg>
-                  </span>
-                  <a>2</a>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
-                    <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
-                    <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2"/>
-                  </svg>
-                  </span>
-                  <a>7</a>
-                </small>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
-
-
 
     <div class="container-flui d-flex justify-content-center my-3">
       <div class="row"></div>
@@ -795,8 +588,12 @@
         如有侵權請告知，本站會立即刪除
         <br />
         <a target="_blank" href="https://github.com/Eugene16342">
-        <img style="width: 30px; height: 30px;" src="./img/HomePage/github.svg">  Eugene16342
-      </a>
+          <img
+            style="width: 30px; height: 30px"
+            src="./img/HomePage/github.svg"
+          />
+          Eugene16342
+        </a>
       </small>
     </div>
   </body>
