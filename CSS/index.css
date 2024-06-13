@@ -10,7 +10,8 @@
   --small_text_color: rgba(0, 0, 0, 0.7);
   --border_color: rgb(210, 210, 210);
   --hover: rgba(245, 222, 179, 0.8);
-  --text_hover: rgb(236, 231, 231);
+  --text_hover: rgb(95, 154, 231);
+  --special_hover: rgb(210, 210, 210);
   --filter-brightness: 100%;
   --post_reply_bgc: rgb(232, 229, 229);
   --reply_textaera: white;
@@ -27,6 +28,7 @@ body.dark_mode {
   --border_color: rgb(210, 210, 210);
   --hover: tomato;
   --text_hover: tomato;
+  --special_hover: tomato;
   --filter-brightness: 80%;
   --post_reply_bgc: rgb(12, 11, 11);
   --reply_textaera: gray;

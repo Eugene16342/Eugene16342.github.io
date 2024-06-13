@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       {
         img: "./img/HomePage/goods4.jpg",
-        name: "應該是音響吧把八八八八八八八",
+        name: "應該是音響吧我也不確定",
         price: 9876,
       },
       {
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       {
         img: "./img/HomePage/goods9.jpg",
-        name: "美國打大廠點卡",
+        name: "美國大廠點卡",
         price: 3000,
       },
       {
@@ -191,6 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     //自動滾動功能看起來有點卡卡的且看不清卡片的內容有點雞肋，
+    //新想法讓他快速向右一大段距離，類似輪播圖效果，但是一次切換多張卡片
     // function autoScroll() {
     //   if (
     //     container.scrollLeft >=
