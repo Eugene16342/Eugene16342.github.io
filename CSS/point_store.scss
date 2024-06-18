@@ -1,67 +1,72 @@
 @import "index.css";
 
-.store_search_bar_container {
-  border: 1px solid var(--border_color);
-  border-right: none;
-  border-bottom: none;
-  border-radius: 5px 0px 0px 0px;
-  background-color: var(--deep);
+.nav {
+  position: sticky;
+  top: 90px;
+  z-index: 10;
+  .store_search_bar_container {
+    border: 1px solid var(--border_color);
+    border-right: none;
+    border-bottom: none;
+    border-radius: 5px 0px 0px 0px;
+    background-color: var(--deep);
 
-  .store_search_bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-
-  .store_search_input {
-    border: none;
-    width: 80%;
-    height: 40px;
-    background-color: var(--background-color);
-    border-radius: 10px 0 0 10px;
-  }
-
-  .store_search_btn {
-    background-color: var(--background-color);
-    color: var(--text_color);
-    border-radius: 0 10px 10px 0;
-    width: 30px;
-    height: 40px;
-    border: none;
-    cursor: pointer;
-    img {
+    .store_search_bar {
       display: flex;
-      align-self: center;
-    }
-  }
-}
-
-.shopping_info {
-  border: 1px solid var(--border_color);
-  border-left: none;
-  border-bottom: none;
-  border-radius: 0px 5px 0px 0px;
-  height: 80px;
-  background-color: var(--deep);
-  .icons {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    svg {
-      width: 30px;
+      align-items: center;
+      justify-content: center;
       height: 100%;
     }
 
-    .shopping_icon {
-      font-weight: 500;
+    .store_search_input {
+      border: none;
+      width: 80%;
+      height: 40px;
+      background-color: var(--background-color);
+      border-radius: 10px 0 0 10px;
+    }
+
+    .store_search_btn {
+      background-color: var(--background-color);
+      color: var(--text_color);
+      border-radius: 0 10px 10px 0;
+      width: 30px;
+      height: 40px;
+      border: none;
+      cursor: pointer;
+      img {
+        display: flex;
+        align-self: center;
+      }
+    }
+  }
+
+  .shopping_info {
+    border: 1px solid var(--border_color);
+    border-left: none;
+    border-bottom: none;
+    border-radius: 0px 5px 0px 0px;
+    height: 80px;
+    background-color: var(--deep);
+    .icons {
+      height: 100%;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      transition: 0.2s;
-      &:hover {
-        color: var(--special_hover);
+      justify-content: space-around;
+      svg {
+        width: 30px;
+        height: 100%;
+      }
+
+      .shopping_icon {
+        font-weight: 500;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: 0.2s;
+        &:hover {
+          color: var(--special_hover);
+        }
       }
     }
   }

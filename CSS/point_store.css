@@ -1,26 +1,31 @@
 @charset "UTF-8";
 @import "index.css";
-.store_search_bar_container {
+.nav {
+  position: sticky;
+  top: 90px;
+  z-index: 10;
+}
+.nav .store_search_bar_container {
   border: 1px solid var(--border_color);
   border-right: none;
   border-bottom: none;
   border-radius: 5px 0px 0px 0px;
   background-color: var(--deep);
 }
-.store_search_bar_container .store_search_bar {
+.nav .store_search_bar_container .store_search_bar {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
 }
-.store_search_bar_container .store_search_input {
+.nav .store_search_bar_container .store_search_input {
   border: none;
   width: 80%;
   height: 40px;
   background-color: var(--background-color);
   border-radius: 10px 0 0 10px;
 }
-.store_search_bar_container .store_search_btn {
+.nav .store_search_bar_container .store_search_btn {
   background-color: var(--background-color);
   color: var(--text_color);
   border-radius: 0 10px 10px 0;
@@ -29,12 +34,11 @@
   border: none;
   cursor: pointer;
 }
-.store_search_bar_container .store_search_btn img {
+.nav .store_search_bar_container .store_search_btn img {
   display: flex;
   align-self: center;
 }
-
-.shopping_info {
+.nav .shopping_info {
   border: 1px solid var(--border_color);
   border-left: none;
   border-bottom: none;
@@ -42,24 +46,24 @@
   height: 80px;
   background-color: var(--deep);
 }
-.shopping_info .icons {
+.nav .shopping_info .icons {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-.shopping_info .icons svg {
+.nav .shopping_info .icons svg {
   width: 30px;
   height: 100%;
 }
-.shopping_info .icons .shopping_icon {
+.nav .shopping_info .icons .shopping_icon {
   font-weight: 500;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: 0.2s;
 }
-.shopping_info .icons .shopping_icon:hover {
+.nav .shopping_info .icons .shopping_icon:hover {
   color: var(--special_hover);
 }
 
