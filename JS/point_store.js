@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <a class="watch_more" href="">看更多</a>
     </div>
     <div class="goods_cards">
-        ${cardsHTML}  <!-- 將生成的卡片的 HTML 字串插入到這裡 -->
+        ${cardsHTML} 
     </div>
 `;
   }
