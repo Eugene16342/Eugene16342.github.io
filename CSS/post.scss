@@ -55,6 +55,8 @@
   }
 
   .post_btn {
+    display: flex;
+    align-items: center;
     .last {
       position: absolute;
       right: 20px;
@@ -214,7 +216,6 @@
       &:hover {
         background-color: var(--deeper);
         transform: translateY(1px);
-
       }
     }
   }

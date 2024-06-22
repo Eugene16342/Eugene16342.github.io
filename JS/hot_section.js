@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div style="height: 176px;" class="col-md-4  ">
                   <img
                     src="${board.img}"
-                    class="filter img-fluid rounded-start w-100 h-100"
+                    class="filter img-fluid rounded-start w-100 h-100 "
                     alt="..."
                   />
                 </div>
