@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   let container = document.getElementById("comment_container");
+  let index = 0;
   let like_svg = `
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16">
                 <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a10 10 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733q.086.18.138.363c.077.27.113.567.113.856s-.036.586-.113.856c-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.2 3.2 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.8 4.8 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"/>
@@ -44,7 +45,15 @@ document.addEventListener("DOMContentLoaded", function () {
       user_profile: "./img/post/profile1.jpeg",
       content: `            <p>這是一篇示範內文</p>
               <span class="position-relative">
-                <img class="filter_NSFW" href="./post.html" src="./img/article_section/Preview2.png">
+                <img class="filter filter_NSFW" href="./post.html" src="./img/article_section/Preview2.png">
+                <span class="NSFW_label"></span>
+              </span>
+              <span class="position-relative">
+                <img class="filter filter_NSFW" href="./post.html" src="./img/article_section/Preview2.png">
+                <span class="NSFW_label"></span>
+              </span>
+              <span class="position-relative">
+                <img class="filter filter_NSFW" href="./post.html" src="./img/article_section/Preview2.png">
                 <span class="NSFW_label"></span>
               </span>
               <p>點擊圖片可以解除模糊化</p>`,
@@ -95,7 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   ];
 
-  post.forEach((post, index) => {
+  //第一次渲染文章
+  post.forEach((post) => {
     let comment_tmp = `
       <a href="" class="card poster" style="width: 12rem;">
         <div style="width: auto; height: 163px;" class="position-relative">
@@ -133,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="post_reply_bg">
           <div class="post_reply">
     `;
-
+    index++;
     if (Object.keys(post.reply[0]).length > 0) {
       post.reply.forEach((reply, index) => {
         let reply_tmp = `
@@ -225,6 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  //第一次渲染將所有層內讚/爛設監聽器
   function addReplyVoteEventListeners() {
     let reply_voteUpButtons = document.querySelectorAll(".reply_vote_up");
     let reply_voteDownButtons = document.querySelectorAll(".reply_vote_down");
@@ -272,5 +283,151 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  //回復文章
+  document
+    .getElementById("user_comment_btn_submit")
+    .addEventListener("click", function () {
+      // 獲取需要的元素
+      let user_name = document.querySelector(".user_name").textContent;
+      let user_account = document.querySelector(".user_account").textContent;
+      let user_profile = document.querySelector(".user_profile").src;
+      let content = document.getElementById("user_comment").value;
+      let now = new Date();
+      let year = now.getFullYear();
+      let month = (now.getMonth() + 1).toString().padStart(2, "0"); // getMonth() 從 0 開始，所以需要加 1
+      let day = now.getDate().toString().padStart(2, "0");
+      let hour = now.getHours().toString().padStart(2, "0");
+      let minute = now.getMinutes().toString().padStart(2, "0");
+      let now_time = year + "-" + month + "-" + day + " " + hour + ":" + minute;
+
+      // 創建新的物件
+      let newPost = {
+        user_name: user_name,
+        user_account: user_account,
+        user_profile: user_profile,
+        content: content,
+        time: now_time,
+        like: 0,
+        hate: 0,
+        reply: [],
+      };
+
+      // 將新的物件添加到 post 陣列中
+      post.push(newPost);
+
+      let newPostHtml = `
+      <a href="" class="card poster" style="width: 12rem;">
+        <div style="width: auto; height: 163px;" class="position-relative">
+          <img  class="filter w-100 h-100 card-img-top" src="${
+            newPost.user_profile
+          }">
+      </div>
+          <div class="card-body text-center">
+            <p class="card-title text-truncate">${newPost.user_name}</p>
+            <p class="card-text">${newPost.user_account}</p>
+          </div>
+        </a>
+        <div class="post_content">
+          <h4 class="post_title">${post_title}<span class="badge">${
+        index + 1
+      }F</span></h4>
+          <div class="d-flex justify-content-between">
+            <span class="others_name"><a href="">${newPost.user_name}(${
+        newPost.user_account
+      })</a></span>
+            <small>${newPost.time}</small>
+          </div>
+          <div class="post_main">
+            ${newPost.content}
+          </div>
+          <div class="post_btn">
+              <button class="post_btn_vote vote_up">${like_svg}</button> <a class="vote_up_amount">${
+        newPost.like
+      }</a>
+              <button class="post_btn_vote vote_down">${hate_svg}</button> <a class="vote_down_amount">${
+        newPost.hate
+      }</a>
+              <button class="last">三</button>
+          </div>
+          <div class="post_reply_bg">
+          <div class="post_reply"></div>       
+          <div class="user_reply">
+            <textarea placeholder="說些甚麼吧" class="text_area"></textarea>
+            <div class="upload_btn">
+              <a >
+                ${emoji_btn_svg}
+              </a>
+              <a class="reply_submit_btn">
+                ${reply_btn_svg}
+              </a>
+          </div>
+          </div>
+      `;
+      index++;
+      let div = document.createElement("div");
+      div.className = "d-flex mb-3";
+      div.innerHTML = newPostHtml;
+      container.appendChild(div);
+
+      let voteUpButton = div.querySelector(".vote_up");
+      let voteDownButton = div.querySelector(".vote_down");
+
+      let voteUpAmount = div.querySelector(".vote_up_amount");
+      let voteDownAmount = div.querySelector(".vote_down_amount");
+
+      voteUpButton.addEventListener("click", function () {
+        // 如果 'vote_down' 按鈕處於活動狀態，則取消其活動狀態並減少其投票數量
+        if (voteDownButton.classList.contains("vote_down_active")) {
+          voteDownButton.classList.remove("vote_down_active");
+          voteDownAmount.textContent = Number(voteDownAmount.textContent) - 1;
+        }
+
+        // 切換 'vote_up' 按鈕的活動狀態並更新其投票數量
+        this.classList.toggle("vote_up_active");
+        if (this.classList.contains("vote_up_active")) {
+          voteUpAmount.textContent = Number(voteUpAmount.textContent) + 1;
+        } else {
+          voteUpAmount.textContent = Number(voteUpAmount.textContent) - 1;
+        }
+      });
+
+      voteDownButton.addEventListener("click", function () {
+        // 如果 'vote_up' 按鈕處於活動狀態，則取消其活動狀態並減少其投票數量
+        if (voteUpButton.classList.contains("vote_up_active")) {
+          voteUpButton.classList.remove("vote_up_active");
+          voteUpAmount.textContent = Number(voteUpAmount.textContent) - 1;
+        }
+
+        // 切換 'vote_down' 按鈕的活動狀態並更新其投票數量
+        this.classList.toggle("vote_down_active");
+        if (this.classList.contains("vote_down_active")) {
+          voteDownAmount.textContent = Number(voteDownAmount.textContent) + 1;
+        } else {
+          voteDownAmount.textContent = Number(voteDownAmount.textContent) - 1;
+        }
+      });
+
+      // 清空輸入框
+      document.getElementById("user_comment").value = "";
+    });
+
+  //解除圖片NSFW濾鏡
+  function removeNSFWfliter() {
+    let NSFWlabels = document.querySelectorAll(".NSFW_label");
+
+    NSFWlabels.forEach((label) => {
+      label.addEventListener("click", function () {
+        // 移除 'NSFW_label' 類名
+        this.classList.remove("NSFW_label");
+
+        // 找到父元素中的 'filter_NSFW' 元素並移除其類名
+        let filter = this.parentNode.querySelector(".filter_NSFW");
+        if (filter) {
+          filter.classList.remove("filter_NSFW");
+        }
+      });
+    });
+  }
   addReplyVoteEventListeners();
+  removeNSFWfliter();
 });
