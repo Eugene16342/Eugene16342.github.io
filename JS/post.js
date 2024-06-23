@@ -83,7 +83,11 @@ document.addEventListener("DOMContentLoaded", function () {
       user_name: "吉人天相",
       user_account: "fakeUser003",
       user_profile: "./img/post/profile3.jpeg",
-      content: `<p>這裡是3樓欸</p>`,
+      content: `<p>這裡是3樓欸</p>
+                <p>難難於主魂迴與迢遞歸長安城，地白愛秋水遠非遊人，十無，雲山深深行為如何君不見，白日雙飛翼如何君不見蒼茫，落日一曲時無夕明。十陰君不川虛自身後事清無田後漁樵，自飛楊柳暗，死生，青黃月掩客世長江折不相巫峽，神何所木不盡之，流何處尋。何為當葉口夕陽虛隔秋水功秋一⋯葉顏秦上無嫌猜美人⋯上隨夢分，怨遙夜田情鳥南寒山駐馬⋯日色歸百東風，者臺驚風。三八月，相送連雪漢夕宮殿鎖十年，相逢一杯酒，當時玉，野在是不見夫婿。</P>
+                <p>白雲遙時風吹大千歸來⋯夜信餘親飲一杯，萬戶漫柳色⋯紛聲去琵琶，不相以荊扉，日之日西與地青將軍洞愁之入。髮日不覺歸來聲遊，無古相疑孤城水白事，黃鶴不見淚痕平風雨，歲之春風不，於上青明日前後庭花，轉。開沙思昨夜人間死⋯月宮園思心夕陽日下，古不遙樹年十五。</p>
+                <p>斷三日暮望君多知人生長江。</p>
+                <p>夜雨白生長復殿，沙場氣畫盤綠非鳳凰我人收從，昏復怨遙夜王千門秋一，風雨竹黃出無人收萬⋯君不寒鼓開五更車一曲高陰去花落⋯聲生明月青山。</p>`,
       time: "2024-5-10 18:27",
       like: 0,
       hate: 0,
@@ -93,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   post.forEach((post, index) => {
     let comment_tmp = `
-        <div class="d-flex mb-3">
       <a href="" class="card poster" style="width: 12rem;">
         <div style="width: auto; height: 163px;" class="position-relative">
           <img  class="filter w-100 h-100 card-img-top" src="${
@@ -130,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="post_reply_bg">
           <div class="post_reply">
     `;
+
     if (Object.keys(post.reply[0]).length > 0) {
       post.reply.forEach((reply, index) => {
         let reply_tmp = `
@@ -146,18 +150,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 <span class="reply_feature_btn reply_vote_up">
                   ${reply_like_btn_svg}
                 </span>
-                <a>${reply.reply_like}</a>
+                <a class="reply_like_amount">${reply.reply_like}</a>
                 <span class="reply_feature_btn reply_vote_down">
                   ${reply_hate_btn_svg}
                 </span>
-                <a>${reply.reply_hate}</a>
+                <a class="reply_hate_amount">${reply.reply_hate}</a>
               </span  >
                 <span class="reply_feature_btn">回覆</span>
                 <span class="reply_feature_btn">檢舉</span>
               </div>
             </div>
-            </div>
       `;
+
         comment_tmp += reply_tmp;
       });
     }
@@ -175,11 +179,98 @@ document.addEventListener("DOMContentLoaded", function () {
               </a>
           </div>
           </div>
-        </div>
   `;
 
-    let span = document.createElement("div");
-    span.innerHTML = comment_tmp;
-    container.appendChild(span);
+    let div = document.createElement("div");
+    div.className = "d-flex mb-3";
+    div.innerHTML = comment_tmp;
+    container.appendChild(div);
+
+    let voteUpButton = div.querySelector(".vote_up");
+    let voteDownButton = div.querySelector(".vote_down");
+
+    let voteUpAmount = div.querySelector(".vote_up_amount");
+    let voteDownAmount = div.querySelector(".vote_down_amount");
+
+    voteUpButton.addEventListener("click", function () {
+      // 如果 'vote_down' 按鈕處於活動狀態，則取消其活動狀態並減少其投票數量
+      if (voteDownButton.classList.contains("vote_down_active")) {
+        voteDownButton.classList.remove("vote_down_active");
+        voteDownAmount.textContent = Number(voteDownAmount.textContent) - 1;
+      }
+
+      // 切換 'vote_up' 按鈕的活動狀態並更新其投票數量
+      this.classList.toggle("vote_up_active");
+      if (this.classList.contains("vote_up_active")) {
+        voteUpAmount.textContent = Number(voteUpAmount.textContent) + 1;
+      } else {
+        voteUpAmount.textContent = Number(voteUpAmount.textContent) - 1;
+      }
+    });
+
+    voteDownButton.addEventListener("click", function () {
+      // 如果 'vote_up' 按鈕處於活動狀態，則取消其活動狀態並減少其投票數量
+      if (voteUpButton.classList.contains("vote_up_active")) {
+        voteUpButton.classList.remove("vote_up_active");
+        voteUpAmount.textContent = Number(voteUpAmount.textContent) - 1;
+      }
+
+      // 切換 'vote_down' 按鈕的活動狀態並更新其投票數量
+      this.classList.toggle("vote_down_active");
+      if (this.classList.contains("vote_down_active")) {
+        voteDownAmount.textContent = Number(voteDownAmount.textContent) + 1;
+      } else {
+        voteDownAmount.textContent = Number(voteDownAmount.textContent) - 1;
+      }
+    });
   });
+
+  function addReplyVoteEventListeners() {
+    let reply_voteUpButtons = document.querySelectorAll(".reply_vote_up");
+    let reply_voteDownButtons = document.querySelectorAll(".reply_vote_down");
+    let reply_voteUpAmounts = document.querySelectorAll(".reply_like_amount");
+    let reply_voteDownAmounts = document.querySelectorAll(".reply_hate_amount");
+
+    reply_voteUpButtons.forEach((button, index) => {
+      button.addEventListener("click", function () {
+        let voteDownButton = reply_voteDownButtons[index];
+        let voteUpAmount = reply_voteUpAmounts[index];
+        let voteDownAmount = reply_voteDownAmounts[index];
+
+        if (voteDownButton.classList.contains("active")) {
+          voteDownButton.classList.remove("active");
+          voteDownAmount.textContent = Number(voteDownAmount.textContent) - 1;
+        }
+
+        this.classList.toggle("active");
+        if (this.classList.contains("active")) {
+          voteUpAmount.textContent = Number(voteUpAmount.textContent) + 1;
+        } else {
+          voteUpAmount.textContent = Number(voteUpAmount.textContent) - 1;
+        }
+      });
+    });
+
+    reply_voteDownButtons.forEach((button, index) => {
+      button.addEventListener("click", function () {
+        let voteUpButton = reply_voteUpButtons[index];
+        let voteUpAmount = reply_voteUpAmounts[index];
+        let voteDownAmount = reply_voteDownAmounts[index];
+
+        if (voteUpButton.classList.contains("active")) {
+          voteUpButton.classList.remove("active");
+          voteUpAmount.textContent = Number(voteUpAmount.textContent) - 1;
+        }
+
+        this.classList.toggle("active");
+        if (this.classList.contains("active")) {
+          voteDownAmount.textContent = Number(voteDownAmount.textContent) + 1;
+        } else {
+          voteDownAmount.textContent = Number(voteDownAmount.textContent) - 1;
+        }
+      });
+    });
+  }
+
+  addReplyVoteEventListeners();
 });

@@ -104,6 +104,11 @@
       background-color: rgb(67, 66, 68);
       color: white;
     }
+
+    .vote_up_amount,
+    .vote_down_amount {
+      margin: 0 10px;
+    }
   }
 
   .post_reply_bg {
@@ -135,6 +140,7 @@
             color: var(--small_text_color);
             font-size: small;
             margin-top: 3px;
+            user-select: none;
             span {
               padding-left: 10px;
               &:first-child {

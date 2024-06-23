@@ -98,6 +98,10 @@
   background-color: rgb(67, 66, 68);
   color: white;
 }
+.post_content .post_btn .vote_up_amount,
+.post_content .post_btn .vote_down_amount {
+  margin: 0 10px;
+}
 .post_content .post_reply_bg {
   background-color: var(--post_reply_bgc);
   border-radius: 5px;
@@ -131,6 +135,9 @@
   color: var(--small_text_color);
   font-size: small;
   margin-top: 3px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .post_content .post_reply_bg .post_reply .others_reply .others_text .reply_feature span {
   padding-left: 10px;
