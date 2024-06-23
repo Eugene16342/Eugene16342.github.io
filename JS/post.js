@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   let container = document.getElementById("comment_container");
   let index = 0;
+  let user_name = document.querySelector(".user_name").textContent;
+  let user_account = document.querySelector(".user_account").textContent;
+  let user_profile = document.querySelector(".user_profile").src;
   let like_svg = `
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16">
                 <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a10 10 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733q.086.18.138.363c.077.27.113.567.113.856s-.036.586-.113.856c-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.2 3.2 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.8 4.8 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"/>
@@ -37,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   </svg>
   `;
 
-  let post_title = "範例】這是一篇範例文章";
+  let post_title = "【範例】這是一篇範例文章";
   let post = [
     {
       user_name: "麻吉",
@@ -106,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //第一次渲染文章
   post.forEach((post) => {
+    let replyIndex = 0;
     let comment_tmp = `
       <a href="" class="card poster" style="width: 12rem;">
         <div style="width: auto; height: 163px;" class="position-relative">
@@ -145,16 +149,16 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
     index++;
     if (Object.keys(post.reply[0]).length > 0) {
-      post.reply.forEach((reply, index) => {
+      post.reply.forEach((reply, replyIndex) => {
         let reply_tmp = `
-                  <div class="others_reply">
+              <div class="others_reply">
               <div class="others_name"> <a href="">${
                 reply.reply_user_name
               }</a></div>
               <div class="others_text">
                 ${reply.reply_content}              
                 <div class="reply_feature">
-                <span>b${index + 1}</span>
+                <span>b${replyIndex + 1}</span>
                 <span>${reply.time}分鐘前</span>
                 <span class="reply_vote">
                 <span class="reply_feature_btn reply_vote_up">
@@ -171,12 +175,21 @@ document.addEventListener("DOMContentLoaded", function () {
               </div>
             </div>
       `;
-
         comment_tmp += reply_tmp;
       });
+    } else {
+      let reply_tmp = `
+              <div class="">
+              <div class="">
+            
+    
+            </div>
+      `;
+      comment_tmp += reply_tmp;
     }
 
     comment_tmp += `
+    
           </div>           
           <div class="user_reply">
             <textarea placeholder="說些甚麼吧" class="text_area"></textarea>
@@ -233,6 +246,60 @@ document.addEventListener("DOMContentLoaded", function () {
         voteDownAmount.textContent = Number(voteDownAmount.textContent) - 1;
       }
     });
+
+    //層內回覆生成邏輯
+    let replySubmitButton = div.querySelector(".reply_submit_btn");
+    let textArea = div.querySelector(".text_area");
+
+    replySubmitButton.addEventListener("click", function () {
+      let newReplyObj = {
+        reply_user_name: user_name,
+        reply_account: user_account,
+        reply_content: textArea.value,
+        time: 0,
+        reply_like: 0,
+        reply_hate: 0,
+      };
+
+      post.reply.push(newReplyObj);
+
+      let newReply = `
+       <div class="others_reply">
+      <div class="others_name"> <a href="">${
+        newReplyObj.reply_user_name
+      }</a></div>
+      <div class="others_text">
+        ${newReplyObj.reply_content}              
+        <div class="reply_feature">
+          <span>b${replyIndex + 1}</span>
+          <span>${newReplyObj.time}分鐘前</span>
+          <span class="reply_vote">
+            <span class="reply_feature_btn reply_vote_up">
+              ${reply_like_btn_svg}
+            </span>
+            <a class="reply_like_amount">${newReplyObj.reply_like}</a>
+            <span class="reply_feature_btn reply_vote_down">
+              ${reply_hate_btn_svg}
+            </span>
+            <a class="reply_hate_amount">${newReplyObj.reply_hate}</a>
+          </span>
+          <span class="reply_feature_btn">回覆</span>
+          <span class="reply_feature_btn">檢舉</span>
+        </div>
+      </div>
+    </div>
+      `;
+
+      let replyContainer = div.querySelector(".post_reply");
+
+      // 將 newReply 添加到容器中
+      let userReply = div.querySelector(".user_reply");
+
+      // 將 newReply 添加到 user_reply 元素之前
+      userReply.insertAdjacentHTML("beforebegin", newReply);
+
+      textArea.value = "";
+    });
   });
 
   //第一次渲染將所有層內讚/爛設監聽器
@@ -288,9 +355,6 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("user_comment_btn_submit")
     .addEventListener("click", function () {
       // 獲取需要的元素
-      let user_name = document.querySelector(".user_name").textContent;
-      let user_account = document.querySelector(".user_account").textContent;
-      let user_profile = document.querySelector(".user_profile").src;
       let content = document.getElementById("user_comment").value;
       let now = new Date();
       let year = now.getFullYear();
@@ -313,7 +377,6 @@ document.addEventListener("DOMContentLoaded", function () {
       };
 
       // 將新的物件添加到 post 陣列中
-      post.push(newPost);
 
       let newPostHtml = `
       <a href="" class="card poster" style="width: 12rem;">
