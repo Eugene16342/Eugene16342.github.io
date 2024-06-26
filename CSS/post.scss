@@ -156,6 +156,11 @@
             .active {
               color: var(--deep);
             }
+
+            .reply_vote_up svg,
+            .reply_vote_down svg {
+              pointer-events: none;
+            }
           }
         }
       }

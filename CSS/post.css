@@ -152,6 +152,10 @@
 .post_content .post_reply_bg .post_reply .others_reply .others_text .reply_feature .active {
   color: var(--deep);
 }
+.post_content .post_reply_bg .post_reply .others_reply .others_text .reply_feature .reply_vote_up svg,
+.post_content .post_reply_bg .post_reply .others_reply .others_text .reply_feature .reply_vote_down svg {
+  pointer-events: none;
+}
 .post_content .post_reply_bg .user_reply {
   display: flex;
   align-items: center;

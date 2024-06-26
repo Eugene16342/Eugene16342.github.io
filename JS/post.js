@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   ${reply_hate_btn_svg}
                 </span>
                 <a class="reply_hate_amount">${reply.reply_hate}</a>
-              </span  >
+              </span>
                 <span class="reply_feature_btn">回覆</span>
                 <span class="reply_feature_btn">檢舉</span>
               </div>
@@ -179,11 +179,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     } else {
       let reply_tmp = `
-              <div class="">
-              <div class="">
-            
-    
-            </div>
+              <div>
+              <div>
       `;
       comment_tmp += reply_tmp;
     }
@@ -287,7 +284,8 @@ document.addEventListener("DOMContentLoaded", function () {
           <span class="reply_feature_btn">檢舉</span>
         </div>
       </div>
-    </div>
+        <div>
+        <div>
       `;
 
       let replyContainer = div.querySelector(".post_reply");
@@ -302,49 +300,50 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  //第一次渲染將所有層內讚/爛設監聽器
-  function addReplyVoteEventListeners() {
-    let reply_voteUpButtons = document.querySelectorAll(".reply_vote_up");
-    let reply_voteDownButtons = document.querySelectorAll(".reply_vote_down");
-    let reply_voteUpAmounts = document.querySelectorAll(".reply_like_amount");
-    let reply_voteDownAmounts = document.querySelectorAll(".reply_hate_amount");
+  //對所有層內讚/爛設監聽器
+  function addEventListeners() {
+    let postReplies = document.querySelectorAll(".container");
+    postReplies.forEach((postReply) => {
+      postReply.addEventListener("click", function (event) {
+        let voteElement = event.target.closest(".reply_vote");
+        if (voteElement) {
+          let replyVoteUpButton = voteElement.querySelector(".reply_vote_up");
+          let replyVoteDownButton =
+            voteElement.querySelector(".reply_vote_down");
+          let replyLikeAmount = voteElement.querySelector(".reply_like_amount");
+          let replyHateAmount = voteElement.querySelector(".reply_hate_amount");
 
-    reply_voteUpButtons.forEach((button, index) => {
-      button.addEventListener("click", function () {
-        let voteDownButton = reply_voteDownButtons[index];
-        let voteUpAmount = reply_voteUpAmounts[index];
-        let voteDownAmount = reply_voteDownAmounts[index];
+          if (event.target.matches(".reply_vote_up")) {
+            if (replyVoteDownButton.classList.contains("active")) {
+              replyVoteDownButton.classList.remove("active");
+              replyHateAmount.textContent =
+                Number(replyHateAmount.textContent) - 1;
+            }
 
-        if (voteDownButton.classList.contains("active")) {
-          voteDownButton.classList.remove("active");
-          voteDownAmount.textContent = Number(voteDownAmount.textContent) - 1;
-        }
+            replyVoteUpButton.classList.toggle("active");
+            if (replyVoteUpButton.classList.contains("active")) {
+              replyLikeAmount.textContent =
+                Number(replyLikeAmount.textContent) + 1;
+            } else {
+              replyLikeAmount.textContent =
+                Number(replyLikeAmount.textContent) - 1;
+            }
+          } else if (event.target.matches(".reply_vote_down")) {
+            if (replyVoteUpButton.classList.contains("active")) {
+              replyVoteUpButton.classList.remove("active");
+              replyLikeAmount.textContent =
+                Number(replyLikeAmount.textContent) - 1;
+            }
 
-        this.classList.toggle("active");
-        if (this.classList.contains("active")) {
-          voteUpAmount.textContent = Number(voteUpAmount.textContent) + 1;
-        } else {
-          voteUpAmount.textContent = Number(voteUpAmount.textContent) - 1;
-        }
-      });
-    });
-
-    reply_voteDownButtons.forEach((button, index) => {
-      button.addEventListener("click", function () {
-        let voteUpButton = reply_voteUpButtons[index];
-        let voteUpAmount = reply_voteUpAmounts[index];
-        let voteDownAmount = reply_voteDownAmounts[index];
-
-        if (voteUpButton.classList.contains("active")) {
-          voteUpButton.classList.remove("active");
-          voteUpAmount.textContent = Number(voteUpAmount.textContent) - 1;
-        }
-
-        this.classList.toggle("active");
-        if (this.classList.contains("active")) {
-          voteDownAmount.textContent = Number(voteDownAmount.textContent) + 1;
-        } else {
-          voteDownAmount.textContent = Number(voteDownAmount.textContent) - 1;
+            replyVoteDownButton.classList.toggle("active");
+            if (replyVoteDownButton.classList.contains("active")) {
+              replyHateAmount.textContent =
+                Number(replyHateAmount.textContent) + 1;
+            } else {
+              replyHateAmount.textContent =
+                Number(replyHateAmount.textContent) - 1;
+            }
+          }
         }
       });
     });
@@ -413,7 +412,10 @@ document.addEventListener("DOMContentLoaded", function () {
               <button class="last">三</button>
           </div>
           <div class="post_reply_bg">
-          <div class="post_reply"></div>       
+          <div class="post_reply">     
+          <div>
+          <div> 
+          </div>
           <div class="user_reply">
             <textarea placeholder="說些甚麼吧" class="text_area"></textarea>
             <div class="upload_btn">
@@ -472,6 +474,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // 清空輸入框
       document.getElementById("user_comment").value = "";
+
+      let replySubmitButton = div.querySelector(".reply_submit_btn");
+      let textArea = div.querySelector(".text_area");
+
+      replySubmitButton.addEventListener("click", function () {
+        let newReplyObj = {
+          reply_user_name: user_name,
+          reply_account: user_account,
+          reply_content: textArea.value,
+          time: 0,
+          reply_like: 0,
+          reply_hate: 0,
+        };
+
+        newPost.reply.push(newReplyObj);
+
+        let newReply = `
+         <div class="others_reply">
+        <div class="others_name"> <a href="">${
+          newReplyObj.reply_user_name
+        }</a></div>
+        <div class="others_text">
+          ${newReplyObj.reply_content}              
+          <div class="reply_feature">
+            <span>b${1}</span>
+            <span>${newReplyObj.time}分鐘前</span>
+            <span class="reply_vote">
+              <span class="reply_feature_btn reply_vote_up">
+                ${reply_like_btn_svg}
+              </span>
+              <a class="reply_like_amount">${newReplyObj.reply_like}</a>
+              <span class="reply_feature_btn reply_vote_down">
+                ${reply_hate_btn_svg}
+              </span>
+              <a class="reply_hate_amount">${newReplyObj.reply_hate}</a>
+            </span>
+            <span class="reply_feature_btn">回覆</span>
+            <span class="reply_feature_btn">檢舉</span>
+          </div>
+        </div>
+      </div>
+        `;
+
+        let replyContainer = div.querySelector(".post_reply");
+
+        // 將 newReply 添加到容器中
+        let userReply = div.querySelector(".user_reply");
+
+        // 將 newReply 添加到 user_reply 元素之前
+        userReply.insertAdjacentHTML("beforebegin", newReply);
+
+        textArea.value = "";
+      });
     });
 
   //解除圖片NSFW濾鏡
@@ -491,6 +546,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
-  addReplyVoteEventListeners();
+
+  addEventListeners();
   removeNSFWfliter();
 });
