@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //第一次渲染文章
   post.forEach((post) => {
-    let replyIndex = 0;
+    let replyIndex = 1;
     let comment_tmp = `
       <a href="" class="card poster" style="width: 12rem;">
         <div style="width: auto; height: 163px;" class="position-relative">
@@ -147,7 +147,6 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="post_reply_bg">
           <div class="post_reply">
     `;
-    index++;
     if (Object.keys(post.reply[0]).length > 0) {
       post.reply.forEach((reply, replyIndex) => {
         let reply_tmp = `
@@ -175,7 +174,9 @@ document.addEventListener("DOMContentLoaded", function () {
               </div>
             </div>
       `;
+
         comment_tmp += reply_tmp;
+        return (replyIndex += replyIndex);
       });
     } else {
       let reply_tmp = `
@@ -249,54 +250,54 @@ document.addEventListener("DOMContentLoaded", function () {
     let textArea = div.querySelector(".text_area");
 
     replySubmitButton.addEventListener("click", function () {
-      let newReplyObj = {
-        reply_user_name: user_name,
-        reply_account: user_account,
-        reply_content: textArea.value,
-        time: 0,
-        reply_like: 0,
-        reply_hate: 0,
-      };
+      if (textArea.value !== "") {
+        let newReplyObj = {
+          reply_user_name: user_name,
+          reply_account: user_account,
+          reply_content: textArea.value,
+          time: 0,
+          reply_like: 0,
+          reply_hate: 0,
+        };
 
-      post.reply.push(newReplyObj);
+        post.reply.push(newReplyObj);
 
-      let newReply = `
-       <div class="others_reply">
-      <div class="others_name"> <a href="">${
-        newReplyObj.reply_user_name
-      }</a></div>
-      <div class="others_text">
-        ${newReplyObj.reply_content}              
-        <div class="reply_feature">
-          <span>b${replyIndex + 1}</span>
-          <span>${newReplyObj.time}分鐘前</span>
-          <span class="reply_vote">
-            <span class="reply_feature_btn reply_vote_up">
-              ${reply_like_btn_svg}
+        let newReply = `
+         <div class="others_reply">
+        <div class="others_name"> <a href="">${
+          newReplyObj.reply_user_name
+        }</a></div>
+        <div class="others_text">
+          ${newReplyObj.reply_content}              
+          <div class="reply_feature">
+            <span>b${replyIndex + 1}</span>
+            <span>${newReplyObj.time}分鐘前</span>
+            <span class="reply_vote">
+              <span class="reply_feature_btn reply_vote_up">
+                ${reply_like_btn_svg}
+              </span>
+              <a class="reply_like_amount">${newReplyObj.reply_like}</a>
+              <span class="reply_feature_btn reply_vote_down">
+                ${reply_hate_btn_svg}
+              </span>
+              <a class="reply_hate_amount">${newReplyObj.reply_hate}</a>
             </span>
-            <a class="reply_like_amount">${newReplyObj.reply_like}</a>
-            <span class="reply_feature_btn reply_vote_down">
-              ${reply_hate_btn_svg}
-            </span>
-            <a class="reply_hate_amount">${newReplyObj.reply_hate}</a>
-          </span>
-          <span class="reply_feature_btn">回覆</span>
-          <span class="reply_feature_btn">檢舉</span>
+            <span class="reply_feature_btn">回覆</span>
+            <span class="reply_feature_btn">檢舉</span>
+          </div>
         </div>
-      </div>
-        <div>
-        <div>
-      `;
+          <div>
+          <div>
+        `;
 
-      let replyContainer = div.querySelector(".post_reply");
+        // 將 newReply 添加到容器中
+        let userReply = div.querySelector(".user_reply");
 
-      // 將 newReply 添加到容器中
-      let userReply = div.querySelector(".user_reply");
+        // 將 newReply 添加到 user_reply 元素之前
+        userReply.insertAdjacentHTML("beforebegin", newReply);
 
-      // 將 newReply 添加到 user_reply 元素之前
-      userReply.insertAdjacentHTML("beforebegin", newReply);
-
-      textArea.value = "";
+        textArea.value = "";
+      }
     });
   });
 
@@ -350,183 +351,187 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   //回復文章
+
   document
     .getElementById("user_comment_btn_submit")
     .addEventListener("click", function () {
-      // 獲取需要的元素
       let content = document.getElementById("user_comment").value;
-      let now = new Date();
-      let year = now.getFullYear();
-      let month = (now.getMonth() + 1).toString().padStart(2, "0"); // getMonth() 從 0 開始，所以需要加 1
-      let day = now.getDate().toString().padStart(2, "0");
-      let hour = now.getHours().toString().padStart(2, "0");
-      let minute = now.getMinutes().toString().padStart(2, "0");
-      let now_time = year + "-" + month + "-" + day + " " + hour + ":" + minute;
+      if (content !== "") {
+        // 獲取需要的元素
+        let now = new Date();
+        let year = now.getFullYear();
+        let month = (now.getMonth() + 1).toString().padStart(2, "0"); // getMonth() 從 0 開始，所以需要加 1
+        let day = now.getDate().toString().padStart(2, "0");
+        let hour = now.getHours().toString().padStart(2, "0");
+        let minute = now.getMinutes().toString().padStart(2, "0");
+        let now_time =
+          year + "-" + month + "-" + day + " " + hour + ":" + minute;
 
-      // 創建新的物件
-      let newPost = {
-        user_name: user_name,
-        user_account: user_account,
-        user_profile: user_profile,
-        content: content,
-        time: now_time,
-        like: 0,
-        hate: 0,
-        reply: [],
-      };
-
-      // 將新的物件添加到 post 陣列中
-
-      let newPostHtml = `
-      <a href="" class="card poster" style="width: 12rem;">
-        <div style="width: auto; height: 163px;" class="position-relative">
-          <img  class="filter w-100 h-100 card-img-top" src="${
-            newPost.user_profile
-          }">
-      </div>
-          <div class="card-body text-center">
-            <p class="card-title text-truncate">${newPost.user_name}</p>
-            <p class="card-text">${newPost.user_account}</p>
-          </div>
-        </a>
-        <div class="post_content">
-          <h4 class="post_title">${post_title}<span class="badge">${
-        index + 1
-      }F</span></h4>
-          <div class="d-flex justify-content-between">
-            <span class="others_name"><a href="">${newPost.user_name}(${
-        newPost.user_account
-      })</a></span>
-            <small>${newPost.time}</small>
-          </div>
-          <div class="post_main">
-            ${newPost.content}
-          </div>
-          <div class="post_btn">
-              <button class="post_btn_vote vote_up">${like_svg}</button> <a class="vote_up_amount">${
-        newPost.like
-      }</a>
-              <button class="post_btn_vote vote_down">${hate_svg}</button> <a class="vote_down_amount">${
-        newPost.hate
-      }</a>
-              <button class="last">三</button>
-          </div>
-          <div class="post_reply_bg">
-          <div class="post_reply">     
-          <div>
-          <div> 
-          </div>
-          <div class="user_reply">
-            <textarea placeholder="說些甚麼吧" class="text_area"></textarea>
-            <div class="upload_btn">
-              <a >
-                ${emoji_btn_svg}
-              </a>
-              <a class="reply_submit_btn">
-                ${reply_btn_svg}
-              </a>
-          </div>
-          </div>
-      `;
-      index++;
-      let div = document.createElement("div");
-      div.className = "d-flex mb-3";
-      div.innerHTML = newPostHtml;
-      container.appendChild(div);
-
-      let voteUpButton = div.querySelector(".vote_up");
-      let voteDownButton = div.querySelector(".vote_down");
-
-      let voteUpAmount = div.querySelector(".vote_up_amount");
-      let voteDownAmount = div.querySelector(".vote_down_amount");
-
-      voteUpButton.addEventListener("click", function () {
-        // 如果 'vote_down' 按鈕處於活動狀態，則取消其活動狀態並減少其投票數量
-        if (voteDownButton.classList.contains("vote_down_active")) {
-          voteDownButton.classList.remove("vote_down_active");
-          voteDownAmount.textContent = Number(voteDownAmount.textContent) - 1;
-        }
-
-        // 切換 'vote_up' 按鈕的活動狀態並更新其投票數量
-        this.classList.toggle("vote_up_active");
-        if (this.classList.contains("vote_up_active")) {
-          voteUpAmount.textContent = Number(voteUpAmount.textContent) + 1;
-        } else {
-          voteUpAmount.textContent = Number(voteUpAmount.textContent) - 1;
-        }
-      });
-
-      voteDownButton.addEventListener("click", function () {
-        // 如果 'vote_up' 按鈕處於活動狀態，則取消其活動狀態並減少其投票數量
-        if (voteUpButton.classList.contains("vote_up_active")) {
-          voteUpButton.classList.remove("vote_up_active");
-          voteUpAmount.textContent = Number(voteUpAmount.textContent) - 1;
-        }
-
-        // 切換 'vote_down' 按鈕的活動狀態並更新其投票數量
-        this.classList.toggle("vote_down_active");
-        if (this.classList.contains("vote_down_active")) {
-          voteDownAmount.textContent = Number(voteDownAmount.textContent) + 1;
-        } else {
-          voteDownAmount.textContent = Number(voteDownAmount.textContent) - 1;
-        }
-      });
-
-      // 清空輸入框
-      document.getElementById("user_comment").value = "";
-
-      let replySubmitButton = div.querySelector(".reply_submit_btn");
-      let textArea = div.querySelector(".text_area");
-
-      replySubmitButton.addEventListener("click", function () {
-        let newReplyObj = {
-          reply_user_name: user_name,
-          reply_account: user_account,
-          reply_content: textArea.value,
-          time: 0,
-          reply_like: 0,
-          reply_hate: 0,
+        // 創建新的物件
+        let newPost = {
+          user_name: user_name,
+          user_account: user_account,
+          user_profile: user_profile,
+          content: content,
+          time: now_time,
+          like: 0,
+          hate: 0,
+          reply: [],
         };
 
-        newPost.reply.push(newReplyObj);
+        // 將新的物件添加到 post 陣列中
 
-        let newReply = `
-         <div class="others_reply">
-        <div class="others_name"> <a href="">${
-          newReplyObj.reply_user_name
-        }</a></div>
-        <div class="others_text">
-          ${newReplyObj.reply_content}              
-          <div class="reply_feature">
-            <span>b${1}</span>
-            <span>${newReplyObj.time}分鐘前</span>
-            <span class="reply_vote">
-              <span class="reply_feature_btn reply_vote_up">
-                ${reply_like_btn_svg}
-              </span>
-              <a class="reply_like_amount">${newReplyObj.reply_like}</a>
-              <span class="reply_feature_btn reply_vote_down">
-                ${reply_hate_btn_svg}
-              </span>
-              <a class="reply_hate_amount">${newReplyObj.reply_hate}</a>
+        let newPostHtml = `
+  <a href="" class="card poster" style="width: 12rem;">
+    <div style="width: auto; height: 163px;" class="position-relative">
+      <img  class="filter w-100 h-100 card-img-top" src="${
+        newPost.user_profile
+      }">
+  </div>
+      <div class="card-body text-center">
+        <p class="card-title text-truncate">${newPost.user_name}</p>
+        <p class="card-text">${newPost.user_account}</p>
+      </div>
+    </a>
+    <div class="post_content">
+      <h4 class="post_title">${post_title}<span class="badge">${
+          index + 1
+        }F</span></h4>
+      <div class="d-flex justify-content-between">
+        <span class="others_name"><a href="">${newPost.user_name}(${
+          newPost.user_account
+        })</a></span>
+        <small>${newPost.time}</small>
+      </div>
+      <div class="post_main">
+        ${newPost.content}
+      </div>
+      <div class="post_btn">
+          <button class="post_btn_vote vote_up">${like_svg}</button> <a class="vote_up_amount">${
+          newPost.like
+        }</a>
+          <button class="post_btn_vote vote_down">${hate_svg}</button> <a class="vote_down_amount">${
+          newPost.hate
+        }</a>
+          <button class="last">三</button>
+      </div>
+      <div class="post_reply_bg">
+      <div class="post_reply">     
+      <div>
+      <div> 
+      </div>
+      <div class="user_reply">
+        <textarea placeholder="說些甚麼吧" class="text_area"></textarea>
+        <div class="upload_btn">
+          <a >
+            ${emoji_btn_svg}
+          </a>
+          <a class="reply_submit_btn">
+            ${reply_btn_svg}
+          </a>
+      </div>
+      </div>
+  `;
+        index++;
+        let div = document.createElement("div");
+        div.className = "d-flex mb-3";
+        div.innerHTML = newPostHtml;
+        container.appendChild(div);
+
+        let voteUpButton = div.querySelector(".vote_up");
+        let voteDownButton = div.querySelector(".vote_down");
+
+        let voteUpAmount = div.querySelector(".vote_up_amount");
+        let voteDownAmount = div.querySelector(".vote_down_amount");
+
+        voteUpButton.addEventListener("click", function () {
+          // 如果 'vote_down' 按鈕處於活動狀態，則取消其活動狀態並減少其投票數量
+          if (voteDownButton.classList.contains("vote_down_active")) {
+            voteDownButton.classList.remove("vote_down_active");
+            voteDownAmount.textContent = Number(voteDownAmount.textContent) - 1;
+          }
+
+          // 切換 'vote_up' 按鈕的活動狀態並更新其投票數量
+          this.classList.toggle("vote_up_active");
+          if (this.classList.contains("vote_up_active")) {
+            voteUpAmount.textContent = Number(voteUpAmount.textContent) + 1;
+          } else {
+            voteUpAmount.textContent = Number(voteUpAmount.textContent) - 1;
+          }
+        });
+
+        voteDownButton.addEventListener("click", function () {
+          // 如果 'vote_up' 按鈕處於活動狀態，則取消其活動狀態並減少其投票數量
+          if (voteUpButton.classList.contains("vote_up_active")) {
+            voteUpButton.classList.remove("vote_up_active");
+            voteUpAmount.textContent = Number(voteUpAmount.textContent) - 1;
+          }
+
+          // 切換 'vote_down' 按鈕的活動狀態並更新其投票數量
+          this.classList.toggle("vote_down_active");
+          if (this.classList.contains("vote_down_active")) {
+            voteDownAmount.textContent = Number(voteDownAmount.textContent) + 1;
+          } else {
+            voteDownAmount.textContent = Number(voteDownAmount.textContent) - 1;
+          }
+        });
+
+        // 清空輸入框
+        document.getElementById("user_comment").value = "";
+
+        let replySubmitButton = div.querySelector(".reply_submit_btn");
+        let textArea = div.querySelector(".text_area");
+
+        replySubmitButton.addEventListener("click", function () {
+          if (textArea.value !== "") {
+            let newReplyObj = {
+              reply_user_name: user_name,
+              reply_account: user_account,
+              reply_content: textArea.value,
+              time: 0,
+              reply_like: 0,
+              reply_hate: 0,
+            };
+
+            newPost.reply.push(newReplyObj);
+
+            let newReply = `
+       <div class="others_reply">
+      <div class="others_name"> <a href="">${
+        newReplyObj.reply_user_name
+      }</a></div>
+      <div class="others_text">
+        ${newReplyObj.reply_content}              
+        <div class="reply_feature">
+          <span>b${1}</span>
+          <span>${newReplyObj.time}分鐘前</span>
+          <span class="reply_vote">
+            <span class="reply_feature_btn reply_vote_up">
+              ${reply_like_btn_svg}
             </span>
-            <span class="reply_feature_btn">回覆</span>
-            <span class="reply_feature_btn">檢舉</span>
-          </div>
+            <a class="reply_like_amount">${newReplyObj.reply_like}</a>
+            <span class="reply_feature_btn reply_vote_down">
+              ${reply_hate_btn_svg}
+            </span>
+            <a class="reply_hate_amount">${newReplyObj.reply_hate}</a>
+          </span>
+          <span class="reply_feature_btn">回覆</span>
+          <span class="reply_feature_btn">檢舉</span>
         </div>
       </div>
-        `;
+    </div>
+      `;
 
-        let replyContainer = div.querySelector(".post_reply");
+            // 將 newReply 添加到容器中
+            let userReply = div.querySelector(".user_reply");
 
-        // 將 newReply 添加到容器中
-        let userReply = div.querySelector(".user_reply");
+            // 將 newReply 添加到 user_reply 元素之前
+            userReply.insertAdjacentHTML("beforebegin", newReply);
 
-        // 將 newReply 添加到 user_reply 元素之前
-        userReply.insertAdjacentHTML("beforebegin", newReply);
-
-        textArea.value = "";
-      });
+            textArea.value = "";
+          }
+        });
+      }
     });
 
   //解除圖片NSFW濾鏡
