@@ -48,15 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
       user_profile: "./img/post/profile1.jpeg",
       content: `            <p>這是一篇示範內文</p>
               <span class="position-relative">
-                <img class="filter filter_NSFW" href="./post.html" src="./img/article_section/Preview2.png">
-                <span class="NSFW_label"></span>
-              </span>
-              <span class="position-relative">
-                <img class="filter filter_NSFW" href="./post.html" src="./img/article_section/Preview2.png">
-                <span class="NSFW_label"></span>
-              </span>
-              <span class="position-relative">
-                <img class="filter filter_NSFW" href="./post.html" src="./img/article_section/Preview2.png">
+                <img  class="filter filter_NSFW" style="max-width: 100%; max-height: 100%; href="./post.html"  src="./img/article_section/Preview1.jpg">
                 <span class="NSFW_label"></span>
               </span>
               <p>點擊圖片可以解除模糊化</p>`,
@@ -109,7 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //第一次渲染文章
   post.forEach((post) => {
-    let replyIndex = 1;
     let comment_tmp = `
       <a href="" class="card poster" style="width: 12rem;">
         <div style="width: auto; height: 163px;" class="position-relative">
@@ -148,16 +139,13 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="post_reply">
     `;
     if (Object.keys(post.reply[0]).length > 0) {
-      post.reply.forEach((reply, replyIndex) => {
+      post.reply.forEach((reply) => {
         let reply_tmp = `
               <div class="others_reply">
-              <div class="others_name"> <a href="">${
-                reply.reply_user_name
-              }</a></div>
+              <div class="others_name"> <a href="">${reply.reply_user_name}</a></div>
               <div class="others_text">
                 ${reply.reply_content}              
                 <div class="reply_feature">
-                <span>b${replyIndex + 1}</span>
                 <span>${reply.time}分鐘前</span>
                 <span class="reply_vote">
                 <span class="reply_feature_btn reply_vote_up">
@@ -176,13 +164,13 @@ document.addEventListener("DOMContentLoaded", function () {
       `;
 
         comment_tmp += reply_tmp;
-        return (replyIndex += replyIndex);
       });
     } else {
       let reply_tmp = `
               <div>
               <div>
       `;
+
       comment_tmp += reply_tmp;
     }
 
@@ -202,6 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
   `;
 
+    index++;
     let div = document.createElement("div");
     div.className = "d-flex mb-3";
     div.innerHTML = comment_tmp;
@@ -264,13 +253,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let newReply = `
          <div class="others_reply">
-        <div class="others_name"> <a href="">${
-          newReplyObj.reply_user_name
-        }</a></div>
+        <div class="others_name"> <a href="">${newReplyObj.reply_user_name}</a></div>
         <div class="others_text">
           ${newReplyObj.reply_content}              
           <div class="reply_feature">
-            <span>b${replyIndex + 1}</span>
             <span>${newReplyObj.time}分鐘前</span>
             <span class="reply_vote">
               <span class="reply_feature_btn reply_vote_up">
