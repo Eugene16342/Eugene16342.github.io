@@ -1,6 +1,6 @@
 window.onload = function () {
-  const whiteLogo = "./img/homePage/whiteLOGO.png";
-  const darkLogo = "./img/homePage/darkLOGO.png";
+  const whiteLogo = "./img/HomePage/whiteLOGO.png";
+  const darkLogo = "./img/HomePage/darkLOGO.png";
   const logo = document.querySelector(".Logo");
   const modeSwitchers = document.querySelectorAll(".mode_switcher");
 
